@@ -136,6 +136,18 @@ map gt cd ~/.local/share/Trash/files
 
 #color
 
+# Custom command to open video files with VLC
+cmd open ${{
+  case "$f" in
+    *.mkv|*.mp4|*.avi|*.flv|*.mov|*.wmv)
+      vlc "$f" &
+      ;;
+    *)
+      lf -remote "send $id open \"$f\""
+      ;;
+  esac
+}}
+
 # Set file colors
 set dircolors "di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=37;41:sg=30;43:tw=30;42:ow=34;42"
 

@@ -131,6 +131,9 @@ alias fdm=/opt/freedownloadmanager/fdm
 alias nv='nvim'
 alias cdm='cd /media/b4haa7/Storage/CS/coding'
 alias uu='sudo apt update && sudo apt upgrade'
+alias ta='task add'
+alias tl='task list'
+alias td='task done'
 #alias lf='lf-ueberzug'
 #paths
 export JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
@@ -139,3 +142,8 @@ export PATH="$PATH:/home/b4haa7/.local/bin"
 export GOROOT=/usr/local/go/
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:/home/b4haa7/go/bin
+
+#start
+neofetch | lolcat
+task list
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
