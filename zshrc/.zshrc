@@ -134,6 +134,7 @@ alias uu='sudo apt update && sudo apt upgrade'
 alias ta='task add'
 alias tl='task list'
 alias td='task done'
+alias gg='git add . && git commit -m "alias" && git push'
 #alias lf='lf-ueberzug'
 #paths
 export JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64

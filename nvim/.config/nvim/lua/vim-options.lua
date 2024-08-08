@@ -1,8 +1,16 @@
-vim.cmd("set expandtab")
-vim.cmd("set shiftwidth=4")
+vim.cmd("set noexpandtab")
+vim.cmd("set shiftwidth=8")
 vim.cmd("set autoindent")
 vim.cmd("set smartindent")
 vim.cmd("filetype on")
 vim.cmd("set relativenumber")
 vim.g.mapleader = " "
 vim.cmd("set clipboard+=unnamedplus")
+vim.cmd("nnoremap <C-d> yyP")
+
+vim.cmd("set tabstop=8")
+vim.cmd("set textwidth=80")
+vim.cmd("set cindent")
+vim.cmd("set cinoptions=:0")
+vim.cmd("set formatoptions+=cqrn")
+vim.cmd("command! Betty !betty %")
