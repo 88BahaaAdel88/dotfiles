@@ -146,5 +146,5 @@ export PATH=$PATH:/home/b4haa7/go/bin
 
 #start
 neofetch | lolcat
-task list
+#task list
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
