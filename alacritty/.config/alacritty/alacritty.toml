@@ -40,5 +40,5 @@ mods = "Super|Shift"
 
 [window]
 decorations = "none"
-opacity = 0.98
+opacity = 0.9
 #dimensions = { columns = 30, lines = 10 }
