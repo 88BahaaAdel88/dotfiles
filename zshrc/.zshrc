@@ -121,6 +121,8 @@ function chpwd() {
 }
 
 # alias
+alias logind='sudo nvim /etc/systemd/logind.conf'
+alias sound='pavucontrol'
 alias cdl='cd $(<~/.last_dir)'
 alias mstorage='sudo mount /dev/sda1 /media/b4haa7/Storage'
 alias copy='xsel --input --clipboard'

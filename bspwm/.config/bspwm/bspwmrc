@@ -3,9 +3,19 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 xsetroot -cursor_name left_ptr
 ~/.config/polybar/launch.sh &
-
+#---------------------------------------------
 bspc monitor -d I II III IV V VI VII VIII IX
 
+bspc monitor HDMI-1 -d VI VII VIII IX
+bspc monitor eDP-1 -d I II III IV V
+
+bspc config automatic_scheme alternate
+bspc config remove_unplugged_monitors true
+bspc config remove_disabled_monitors true
+#----------------------------------------------
+kdeconnect-indicator &
+caffeine-indicator &
+caffeine &
 picom &
 diodon &
 polybar &
