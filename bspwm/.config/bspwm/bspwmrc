@@ -23,7 +23,6 @@ diodon &
 polybar &
 variety &
 nm-applet &
-redshift -P -m randr -l 30:31.2 -t 6500:5000 &
 xinput set-prop 13 "libinput Tapping Enabled" 1
 xrandr --output HDMI-1 --auto --right-of eDP-1
 blueman-manager &
