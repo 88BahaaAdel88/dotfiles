@@ -13,7 +13,9 @@ bspc config automatic_scheme alternate
 bspc config remove_unplugged_monitors true
 bspc config remove_disabled_monitors true
 #----------------------------------------------
-kdeconnect-indicator &
+# Start xss-lock
+xss-lock -- ~/scripts/lockscreen.sh &
+redshift-gtk &
 caffeine-indicator &
 caffeine &
 picom &
@@ -41,3 +43,5 @@ bspc config focused_border_color "#b03648"
 bspc config normal_border_color "#373b41"
 ######################################################
 
+# Auto switch to external monitor if connected
+xrandr | grep "HDMI-1 connected" && xrandr --output eDP-1 --off --output HDMI-1 --auto
