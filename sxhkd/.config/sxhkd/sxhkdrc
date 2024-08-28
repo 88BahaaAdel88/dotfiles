@@ -1,0 +1,166 @@
+#
+# wm independent hotkeys
+#
+#----------------------------Shorcuts-----------------------------
+super + shift + {w,e,r}
+    bspc node -m {HDMI-1,eDP-1,VGA-1}
+#sleep
+super + shift + s
+    systemctl suspend
+
+# Move focused window to the next monitor
+super + shift + m
+    bspc node -m next
+#-----------------------------------------------------------------
+
+super + Return
+    alacritty
+
+super + shift + v
+	diodon &
+
+super + b
+    firefox
+
+super + {1-9}
+    bspc desktop -f ^{1-9}
+
+super + q
+	bspc node -c
+
+super + shift + x
+	i3lock-fancy
+
+super + d
+	rofi -show run
+
+super + BackSpace
+	nemo
+
+Print
+	flameshot gui -c
+
+# Hibernate
+super + shift + Pause
+    systemctl hibernate
+
+# -------------------------- focus/swap --------------------------
+alt + {1,2,3,4,5,6,7,8,9,0}
+  bspc desktop -f {I,II,III,IV,V,VI,VII,VIII,IX,X}
+
+ctrl + {1,2,3,4,5,6,7,8,9,0}
+  bspc desktop -f {I,II,III,IV,V,VI,VII,VIII,IX,X}
+
+#focus or send to the given desktop
+super + shift {1-9,0}
+	bspc node -d '^{1-9,10}'
+# ----------------------------------------------------------------
+
+#---------------------------Audio---------------------------------
+
+# Increase volume
+XF86AudioRaiseVolume
+    pactl set-sink-volume @DEFAULT_SINK@ +10%
+
+# Decrease volume
+XF86AudioLowerVolume
+    pactl set-sink-volume @DEFAULT_SINK@ -10%
+
+# Mute/unmute volume
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Play/Pause
+XF86AudioPlay
+    playerctl play-pause
+
+# Next
+XF86AudioNext
+    playerctl next
+
+# Previous
+XF86AudioPrev
+    playerctl previous
+
+# Stop (optional)
+XF86AudioStop
+    playerctl stop
+#----------------------------------------------------------------
+#
+#------------------------foucs window----------------------------
+# Focus left
+super + h
+    bspc node -f west
+
+# Focus down
+super + j
+    bspc node -f south
+
+# Focus up
+super + k
+    bspc node -f north
+
+# Focus right
+super + l
+    bspc node -f east
+#-----------------------------------------------------------------
+#
+#---------------------------move window---------------------------
+#
+# Move window left
+super + shift + h
+    bspc node -s west
+
+# Move window down
+super + shift + j
+    bspc node -s south
+
+# Move window up
+super + shift + k
+    bspc node -s north
+
+# Move window right
+super + shift + l
+    bspc node -s east
+#-----------------------------------------------------------------
+#-------------------------toggle layout---------------------------
+#
+## Toggle layout
+super + m
+    bspc desktop -l next
+#-----------------------------------------------------------------
+#-------------------------Toggle Mode-----------------------------
+#
+# Tiled mode
+super + t
+    bspc node -t tiled
+
+# Floating mode
+super + s
+    bspc node -t floating
+
+# Fullscreen mode
+super + f
+    bspc node -t fullscreen
+
+# Stacked mode
+super + g
+    bspc node -t stacked
+#-----------------------------------------------------------------
+#
+#---------------------------reload--------------------------------
+## Reload bspwm and sxhkd
+super + alt + c
+    bspc wm -r; pkill -USR1 -x sxhkd
+#-----------------------------------------------------------------
+#-----------------------Brightness--------------------------------
+## Increase brightness
+XF86MonBrightnessUp
+    brightnessctl set +10%
+
+# Decrease brightness
+XF86MonBrightnessDown
+    brightnessctl set 10%-
+#-----------------------------------------------------------------
+ctrl + {space, grave}
+	dunstctl {close-all,history-pop}
