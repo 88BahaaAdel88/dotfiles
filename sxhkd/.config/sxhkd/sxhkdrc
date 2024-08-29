@@ -162,5 +162,11 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
     brightnessctl set 10%-
 #-----------------------------------------------------------------
+#------------------------notifications----------------------------
 ctrl + {space, grave}
 	dunstctl {close-all,history-pop}
+#-----------------------------------------------------------------
+#--------------- wallpaper, skipping the forward history-------------variety------------------------------
+super + shift + n
+	variety -n
+#-----------------------------------------------------------------
