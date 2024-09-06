@@ -4,18 +4,17 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 xsetroot -cursor_name left_ptr
 ~/.config/polybar/launch.sh &
 #---------------------------------------------
-bspc monitor -d I II III IV V VI VII VIII IX
+bspc monitor -d I II III IV V VI VII VIII IX X
 
-bspc monitor HDMI-1 -d VI VII VIII IX
-bspc monitor eDP-1 -d I II III IV V
+bspc monitor HDMI-1 -d VI VII VIII IX X
+bspc monitor eDP-1 -d I II III IV V 
 
 bspc config automatic_scheme alternate
 bspc config remove_unplugged_monitors true
 bspc config remove_disabled_monitors true
 #----------------------------------------------
-# Start xss-lock
 ~/scripts/launch_polybar.sh &
-xss-lock -- ~/scripts/lockscreen.sh &
+xautolock -time 10 -locker slock&
 redshift-gtk &
 caffeine-indicator &
 caffeine &

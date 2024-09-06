@@ -18,3 +18,12 @@ vim.cmd("nnoremap <S-PageDown> $")
 vim.cmd("inoremap <S-PageDown> <C-o>$")
 vim.cmd("nnoremap <S-PageUp> ^")
 vim.cmd("inoremap <S-PageUp> <C-o>^")
+
+
+
+-- Enable persistent undo
+vim.cmd('set undofile')
+-- Set the directory for undo files
+vim.cmd('set undodir=~/.config/nvim/undo')
+-- Optional: Set the maximum number of levels for the undo history
+vim.cmd('set undolevels=1000')

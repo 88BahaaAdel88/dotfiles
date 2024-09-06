@@ -14,7 +14,7 @@ super + shift + m
 #-----------------------------------------------------------------
 
 super + Return
-    alacritty
+    alacritty -o font.size=8
 
 super + shift + v
 	diodon &
@@ -29,10 +29,12 @@ super + q
 	bspc node -c
 
 super + shift + x
-	i3lock-fancy
+	slock
 
 super + d
 	rofi -show run
+super + e
+	rofimoji
 
 super + BackSpace
 	nemo
@@ -168,5 +170,5 @@ ctrl + {space, grave}
 #-----------------------------------------------------------------
 #--------------- wallpaper, skipping the forward history-------------variety------------------------------
 super + shift + n
-	variety -n
+	variety --fast-forward
 #-----------------------------------------------------------------
