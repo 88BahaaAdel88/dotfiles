@@ -20,7 +20,7 @@ super + shift + v
 	diodon &
 
 super + b
-    brave
+    firefox
 
 super + {1-9}
     bspc desktop -f ^{1-9}
@@ -41,6 +41,9 @@ super + BackSpace
 
 Print
 	flameshot gui -c
+
+super + shift + n
+	variety --fast-forward
 
 # Hibernate
 super + shift + Pause
@@ -124,12 +127,27 @@ super + shift + k
 # Move window right
 super + shift + l
     bspc node -s east
+#-----------------------bspc & sxhkd control----------------------
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+#restart sxhkd
+super + shift + r
+	pkill -USR1 -x sxhkd
 #-----------------------------------------------------------------
-#-------------------------toggle layout---------------------------
+#-------------------------Toggle layout---------------------------
 #
-## Toggle layout
+## Alternate between the tiled and monocle layout
 super + m
     bspc desktop -l next
+
+# send the newest marked node to the newest preselected node
+super + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+# swap the current node and the biggest window
+super + g
+	bspc node -s biggest.window
 #-----------------------------------------------------------------
 #-------------------------Toggle Mode-----------------------------
 #
@@ -149,12 +167,6 @@ super + f
 super + g
     bspc node -t stacked
 #-----------------------------------------------------------------
-#
-#---------------------------reload--------------------------------
-## Reload bspwm and sxhkd
-super + alt + c
-    bspc wm -r; pkill -USR1 -x sxhkd
-#-----------------------------------------------------------------
 #-----------------------Brightness--------------------------------
 ## Increase brightness
 XF86MonBrightnessUp
@@ -167,8 +179,4 @@ XF86MonBrightnessDown
 #------------------------notifications----------------------------
 ctrl + {space, grave}
 	dunstctl {close-all,history-pop}
-#-----------------------------------------------------------------
-#--------------- wallpaper, skipping the forward history-------------variety------------------------------
-super + shift + n
-	variety --fast-forward
 #-----------------------------------------------------------------
