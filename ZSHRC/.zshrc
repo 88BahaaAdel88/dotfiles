@@ -143,6 +143,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias hotspoton='nmcli device wifi hotspot ifname wlp2s0 ssid مخمخ password 44444444'
 alias hotspotoff='nmcli device disconnect wlp2s0'
+alias fix-mouse='xinput set-prop 15 "libinput Tapping Enabled" 1'
 #alias lf='lf-ueberzug'
 #paths
 export JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64

@@ -23,7 +23,7 @@ diodon &
 polybar &
 variety &
 nm-applet &
-xinput set-prop 13 "libinput Tapping Enabled" 1
+xinput set-prop 15 "libinput Tapping Enabled" 1
 #xrandr --output HDMI-1 --auto --right-of eDP-1
 blueman-manager &
 #####################################################
@@ -37,8 +37,8 @@ bspc config gapless_monocle      false
 bspc config paddingless_monocle true
 bspc config single_monocle false
 
-bspc config active_border_color "#e83a3f"
-bspc config focused_border_color "#b03648"
+bspc config active_border_color "#9370DB"
+bspc config focused_border_color "#9370DB"
 bspc config normal_border_color "#373b41"
 ######################################################
 
