@@ -4,7 +4,9 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
+if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+  exec startx
+fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -145,6 +147,7 @@ alias hotspoton='nmcli device wifi hotspot ifname wlp2s0 ssid مخمخ password 
 alias hotspotoff='nmcli device disconnect wlp2s0'
 alias fix-mouse='xinput set-prop 15 "libinput Tapping Enabled" 1'
 #alias lf='lf-ueberzug'
+alias r='ranger'
 #paths
 export JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH

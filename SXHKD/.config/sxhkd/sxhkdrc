@@ -3,7 +3,7 @@
 #
 #----------------------------Shorcuts-----------------------------
 super + shift + {w,e,r}
-    bspc node -m {HDMI-1,eDP-1,VGA-1}
+    bspc node -m {HDMI1,eDP1,VGA1}
 #sleep
 super + shift + s
     systemctl suspend
@@ -14,7 +14,7 @@ super + shift + m
 #-----------------------------------------------------------------
 
 super + Return
-    alacritty -o font.size=8
+    alacritty -o font.size=11
 
 super + shift + v
 	diodon &
@@ -140,6 +140,10 @@ super + shift + r
 ## Alternate between the tiled and monocle layout
 super + m
     bspc desktop -l next
+
+# Focus the next window
+super + {_,shift + }Tab
+    bspc node -f {next,prev}.local
 
 # send the newest marked node to the newest preselected node
 super + y
