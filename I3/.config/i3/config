@@ -222,7 +222,7 @@ exec --no-startup-id i3lock-fancy
 ##########################################################################
 # software shortcuts
 bindsym $mod+b exec firefox
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 ##rofi replacment for dmenu
 bindsym $mod+d exec --no-startup-id rofi -show run
 ##diodon for clipboard history
