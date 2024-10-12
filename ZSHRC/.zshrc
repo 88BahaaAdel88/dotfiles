@@ -157,6 +157,7 @@ export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:/home/b4haa7/go/bin
 
 #start
-neofetch | lolcat
+#neofetch | lolcat
+cowsay -f tux 'enjoy :)'
 #task list
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
