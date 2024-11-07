@@ -14,7 +14,7 @@ super + shift + m
 #-----------------------------------------------------------------
 
 super + Return
-    alacritty -o font.size=8
+    alacritty -o font.size=10
 
 super + shift + v
 	diodon &

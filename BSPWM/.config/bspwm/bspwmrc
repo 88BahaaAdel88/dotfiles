@@ -6,7 +6,8 @@ xsetroot -cursor_name left_ptr
 #---------------------------------------------
 #bspc monitor -d I II III IV V VI VII VIII IX X
 
-bspc monitor eDP1 -d 󰈹   󰕼 󰙯 󰉋
+#bspc monitor eDP1 -d 󰈹   󰕼 󰙯 󰉋
+bspc monitor eDP1 -d VI VII VIII IX X
 bspc monitor HDMI1 -d I II III IV V 
 
 bspc config automatic_scheme alternate
@@ -30,6 +31,7 @@ nm-applet &
 xinput set-prop 13 "libinput Tapping Enabled" 1
 #nitrogen --restore
 #xrandr --output HDMI-1 --auto --right-of eDP-1
+#xrandr --output eDP1 --auto --right-of HDMI1
 xwallpaper --maximize /mnt/Storage/Media/Imgs\ \&\ Vids/Imgs/Wallpapers/stars_squared.png
 blueman-manager &
 setxkbmap -layout "us,eg" -option "grp:alt_shift_toggle"

@@ -94,7 +94,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+#   export EDITOR='nvim'
 # else
 #   export EDITOR='mvim'
 # fi
@@ -148,6 +148,8 @@ alias hotspotoff='nmcli device disconnect wlp2s0'
 alias fix-mouse='xinput set-prop 15 "libinput Tapping Enabled" 1'
 #alias lf='lf-ueberzug'
 alias r='ranger'
+alias b='btop'
+alias py='python3'
 #paths
 export JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH
@@ -155,7 +157,10 @@ export PATH="$PATH:/home/b4haa7/.local/bin"
 export GOROOT=/usr/local/go/
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:/home/b4haa7/go/bin
-
+export EDITOR='neovim'
+export PATH=$PATH:/home/ienjoycaffeine/apps/pycharm/bin
+export PATH=$PATH:/home/ienjoycaffeine/apps/
+export PATH=$PATH:/home/ienjoycaffeine/scripts/
 #start
 #neofetch | lolcat
 cowsay -f tux 'enjoy :)'
