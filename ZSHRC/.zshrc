@@ -157,7 +157,7 @@ export PATH="$PATH:/home/b4haa7/.local/bin"
 export GOROOT=/usr/local/go/
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:/home/b4haa7/go/bin
-export EDITOR='neovim'
+export EDITOR='nvim'
 export PATH=$PATH:/home/ienjoycaffeine/apps/pycharm/bin
 export PATH=$PATH:/home/ienjoycaffeine/apps/
 export PATH=$PATH:/home/ienjoycaffeine/scripts/
@@ -166,3 +166,9 @@ export PATH=$PATH:/home/ienjoycaffeine/scripts/
 cowsay -f tux 'enjoy :)'
 #task list
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/ienjoycaffeine/.dart-cli-completion/zsh-config.zsh ]] && . /home/ienjoycaffeine/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
