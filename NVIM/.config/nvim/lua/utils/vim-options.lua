@@ -12,7 +12,7 @@ vim.opt.termguicolors = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
-
+vim.opt.clipboard = 'unnamedplus'
 vim.api.nvim_exec([[
   autocmd FileType html lua vim.bo.shiftwidth = 2
   autocmd FileType html lua vim.bo.tabstop = 2

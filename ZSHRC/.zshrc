@@ -150,6 +150,7 @@ alias fix-mouse='xinput set-prop 15 "libinput Tapping Enabled" 1'
 alias r='ranger'
 alias b='btop'
 alias py='python3'
+alias yt-download='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]"'
 #paths
 export JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH
@@ -159,7 +160,7 @@ export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:/home/b4haa7/go/bin
 export EDITOR='nvim'
 export PATH=$PATH:/home/ienjoycaffeine/apps/pycharm/bin
-export PATH=$PATH:/home/ienjoycaffeine/apps/
+export PATH=$HOME/apps:$PATH
 export PATH=$PATH:/home/ienjoycaffeine/scripts/
 #start
 #neofetch | lolcat
