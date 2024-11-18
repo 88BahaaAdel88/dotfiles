@@ -1,5 +1,5 @@
 #old nvim 
 OLD/nvim/undo/
-#polybar
-POlYBAR/.config/polybar/.env
-POlYBAR/.config/polybar/weather.py
+IGNORED/
+
+POLYBAR/.config/polybar/.envv

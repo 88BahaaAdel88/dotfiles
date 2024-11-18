@@ -1,5 +1,5 @@
 #!/bin/bash
-source ~/.config/polybar/.env
+source ~/.config/polybar/.envv
 
 CITY="361058"
 URL="https://api.openweathermap.org/data/2.5/weather?id=${CITY}&appid=${API_KEY}&units=metric"
