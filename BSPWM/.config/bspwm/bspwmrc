@@ -11,7 +11,7 @@ bspc monitor eDP1 -d VI VII VIII IX X
 bspc monitor HDMI1 -d I II III IV V 
 
 bspc config automatic_scheme alternate
-bspc config remove_unplugged_monitors true
+#bspc config remove_unplugged_monitors true
 bspc config remove_disabled_monitors true
 #----------------------------------------------
 ~/scripts/launch_polybar.sh &
