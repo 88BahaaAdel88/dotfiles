@@ -13,7 +13,7 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # jq
-temp=$(echo "$weather_data" | jq '.main.temp' | xargs printf "%.1f")
+temp=$(echo "$weather_data" | jq '.main.temp' | xargs printf "%.f")
 condition=$(echo "$weather_data" | jq -r '.weather[0].description')
 wind_speed=$(echo "$weather_data" | jq '.wind.speed' | xargs printf "%.1f")
 
