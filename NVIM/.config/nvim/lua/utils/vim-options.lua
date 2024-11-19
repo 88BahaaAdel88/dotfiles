@@ -24,3 +24,9 @@ vim.api.nvim_exec([[
   autocmd FileType javascript lua vim.bo.tabstop = 2
   autocmd FileType javascript lua vim.bo.shiftwidth = 2
 ]], false)
+
+--navigating vim panes--
+vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
+vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
+vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
+vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
