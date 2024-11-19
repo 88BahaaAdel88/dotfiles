@@ -29,7 +29,10 @@ super + q
 	bspc node -c
 
 super + shift + x
-	slock
+    xscreensaver-command -lock
+#	slock
+
+
 
 super + d
 	rofi -show run
