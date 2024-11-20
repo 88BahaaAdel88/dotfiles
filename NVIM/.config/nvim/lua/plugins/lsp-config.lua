@@ -28,13 +28,13 @@ return {
                 lsp_zero.default_keymaps({ buffer = bufnr })
             end)
 
-            lspconfig.tsserver.setup {
-                init_options = {
-                    preferences = {
-                        disableSuggestions = true,
-                    }
-                }
-            }
+           -- lspconfig.tsserver.setup {
+           --     init_options = {
+           --         preferences = {
+           --             disableSuggestions = true,
+           --         }
+           --     }
+           -- }
 
             require('mason').setup({})
             require('mason-lspconfig').setup({

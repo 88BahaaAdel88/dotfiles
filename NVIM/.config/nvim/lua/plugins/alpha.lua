@@ -66,7 +66,7 @@ local function layout()
             button("o", "󰊪  File Explorer", ":Neotree float<CR>"),
             button("f", "  Find File", ":Telescope find_files<CR>"),
             button("s", "  Saved Sessions", ":SessionManager load_session<CR>"),
-            button("c", "󰑴  Coding Stuff", ":cd ~/code<CR>:Neotree float<CR>"),
+            button("c", "󰑴  Coding Stuff", ":cd /mnt/Storage/CS/coding<CR>:Neotree float<CR>"),
             button("e", "  Edit Neovim", ":cd ~/.config/nvim<CR>:Neotree float<CR>"),
             button("u", "󰂖  Update plugins", ":Lazy update<CR>"),
             button("m", "󱌣  Mason", ":Mason<CR>"),
