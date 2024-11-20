@@ -35,17 +35,6 @@ return {
                     }
                 }
             }
-            lspconfig.html.setup({
-                filetypes = { "html", "templ", "php" },
-                init_options = {
-                    configurationSection = { "html", "css", "php" },
-                    embeddedLanguages = {
-                        css = true,
-                        php = true
-                    },
-                    provideFormatter = true
-                }
-            })
 
             require('mason').setup({})
             require('mason-lspconfig').setup({
