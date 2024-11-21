@@ -26,7 +26,8 @@ case "$condition" in
     "clear sky") icon="" ;;
     "few clouds") icon="" ;;
     "rain") icon="" ;;
-    "light rain") icon= ;;
+    "light rain") icon="";;
+    "overcast clouds") icon="";;
     *) icon="󰖚" ;;           # Default icon
 esac
 
