@@ -30,7 +30,7 @@ super + q
 
 super + shift + x
     xscreensaver-command -lock
-#	slock
+
 
 
 

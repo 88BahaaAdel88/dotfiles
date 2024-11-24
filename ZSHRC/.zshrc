@@ -151,6 +151,7 @@ alias r='ranger'
 alias b='btop'
 alias py='python3'
 alias yt-download='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]"'
+alias yt-audio='yt-dlp -x --audio-format mp3'
 #paths
 export JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH
