@@ -13,6 +13,11 @@ super + shift + m
     bspc node -m next
 #-----------------------------------------------------------------
 
+# scratchpads
+super + alt + {i,space,t}
+    scratch {ranger,terminal,btop}
+
+
 super + Return
     alacritty -o font.size=10
 

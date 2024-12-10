@@ -143,8 +143,8 @@ alias ..='cd ..'
 alias ...='cd ../..' 
 alias ....='cd ../../..' 
 alias .....='cd ../../../..'
-alias hotspoton='nmcli device wifi hotspot ifname wlp2s0 ssid مخمخ password 44444444'
-alias hotspotoff='nmcli device disconnect wlp2s0'
+alias hotspoton='nmcli device wifi hotspot ifname wlan0 ssid مخمخ password 44444444'
+alias hotspotoff='nmcli device disconnect wlan0'
 alias fix-mouse='xinput set-prop 15 "libinput Tapping Enabled" 1'
 #alias lf='lf-ueberzug'
 alias r='ranger'
@@ -168,7 +168,8 @@ export PATH=$PATH:/home/ienjoycaffeine/scripts/
 cowsay -f tux 'enjoy :)'
 #task list
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-
+# autojump
+[[ -s /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /home/ienjoycaffeine/.dart-cli-completion/zsh-config.zsh ]] && . /home/ienjoycaffeine/.dart-cli-completion/zsh-config.zsh || true
