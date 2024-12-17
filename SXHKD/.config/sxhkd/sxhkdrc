@@ -30,7 +30,7 @@ super + b
 super + {1-9}
     bspc desktop -f ^{1-9}
 
-super + q
+super + shift + q
 	bspc node -c
 
 super + shift + x
@@ -52,7 +52,8 @@ Print
 
 super + shift + n
 	variety --fast-forward
-
+super + shift + p
+    variety --toggle-pause
 # Hibernate
 super + shift + Pause
     systemctl hibernate

@@ -44,6 +44,8 @@ bspc config remove_disabled_monitors true
 #blueman-manager &
 #setxkbmap -layout "us,eg" -option "grp:alt_shift_toggle"
 #####################################################
+bspc rule -a firefox:Toolkit state=floating
+####################
 
 bspc config border_width         2
 bspc config window_gap           10

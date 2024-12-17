@@ -15,6 +15,8 @@ return {
                 width = 30,
             },
             filesystem = {
+                follow_current_file = true,
+                hijack_netrw_behavior = "open_current",
                 filtered_items = {
                     visible = true,
                     hide_dotfiles = false,
@@ -23,6 +25,6 @@ return {
                 },
             },
         })
-        vim.keymap.set("n", "<C-t>", ":Neotree left toggle<CR>", {})
+        vim.keymap.set("n", "<C-t>", ":Neotree left toggle<CR>", { noremap = true, silent = true })
     end,
 }
