@@ -36,6 +36,7 @@ return {
 				stopAtBeginningOfMainSubprogram = false,
 			},
 		}
+
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()
 		end
