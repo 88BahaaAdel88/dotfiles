@@ -22,33 +22,11 @@ bspc config remove_unplugged_monitors true
 bspc config remove_disabled_monitors true
 #----------------------------------------------
 ~/scripts/launch_polybar.sh &
-#xautolock -time 10 -locker slock&
-#redshift-gtk &
-#caffeine-indicator &
-#caffeine &
-#picom &
-#diodon &
-#dunst&
-#ticktick.AppImage&
-##polybar &
-#flameshot &
-##variety &
-#spotify &
-#discord &
-#nm-applet &
-#xinput set-prop 13 "libinput Tapping Enabled" 1
-##nitrogen --restore
-##xrandr --output HDMI-1 --auto --right-of eDP-1
-##xrandr --output eDP1 --auto --right-of HDMI1
-#xwallpaper --maximize /mnt/Storage/Media/Imgs\ \&\ Vids/Imgs/Wallpapers/stars_squared.png
-#blueman-manager &
-#setxkbmap -layout "us,eg" -option "grp:alt_shift_toggle"
 #####################################################
 bspc rule -a firefox:Toolkit state=floating
 #bspc rule -a firefox:Navigator state=floating
 bspc rule -a Tk state=floating
 ####################
-
 bspc config border_width         2
 bspc config window_gap           10
 
