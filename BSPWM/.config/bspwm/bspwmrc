@@ -13,8 +13,9 @@ xsetroot -cursor_name left_ptr
 bspc config top_padding 0
 #bspc config bottom_padding 0
 
+# 󰈹   󰉓 󰿪    
 #bspc monitor eDP1 -d 󰼏 󰼐 󰼑 󰼒 󰼓
-bspc monitor eDP1 -d 󰎳 󰎶 󰎹 󰎼 󰽽
+bspc monitor eDP1 -d 󰎳 󰎶 󰎹 󰎼 󰽽 
 bspc monitor HDMI1 -d 󰎤 󰎧 󰎪 󰎭 󰎱
 
 bspc config automatic_scheme alternate
