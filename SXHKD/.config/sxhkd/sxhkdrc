@@ -14,10 +14,10 @@ super + shift + m
 #-----------------------------------------------------------------
 
 # scratchpads
-super + alt + {i,space,t}
+super + alt + {f,space,b}
     scratch {ranger,terminal,btop}
-
-
+super + alt + t
+    ticktick &
 super + Return
     alacritty -o font.size=10
 
@@ -151,8 +151,10 @@ super + m
     bspc desktop -l next
 
 # Focus the next window
-super + {_,shift + }Tab
-    bspc node -f {next,prev}.local
+# super + {_,shift + }Tab
+#     bspc node -f {next,prev}.local
+super + Tab
+    bspc node next.local -f -t fullscreen
 
 # send the newest marked node to the newest preselected node
 super + y
