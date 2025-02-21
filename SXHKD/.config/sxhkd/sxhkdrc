@@ -25,7 +25,7 @@ super + shift + v
 	diodon &
 
 super + b
-    firefox
+    brave
 
 super + {1-9}
     bspc desktop -f ^{1-9}

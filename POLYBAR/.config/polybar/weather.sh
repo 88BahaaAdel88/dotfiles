@@ -1,6 +1,6 @@
 #!/bin/bash
-source ~/.config/polybar/.envv
 
+API_KEY='7994bf5fddddece831afed448edb84ec'
 CITY="361058"
 URL="https://api.openweathermap.org/data/2.5/weather?id=${CITY}&appid=${API_KEY}&units=metric"
 
