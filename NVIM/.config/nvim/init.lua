@@ -13,5 +13,5 @@ vim.opt.rtp:prepend(lazypath)
 
 require("utils.vim-options")
 require("lazy").setup("plugins")
-
+require("nvim-silicon")
 require("utils.keys")

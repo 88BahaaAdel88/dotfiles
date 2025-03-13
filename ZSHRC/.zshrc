@@ -163,7 +163,10 @@ export EDITOR='nvim'
 export PATH=$PATH:/home/ienjoycaffeine/apps/pycharm/bin
 export PATH=$HOME/apps:$PATH
 export PATH=$PATH:/home/ienjoycaffeine/scripts/
-#start
+export ANDROID_HOME="$HOME/Android/Sdk"
+export PATH="$PATH:$ANDROID_HOME/tools"
+export PATH="$PATH:$ANDROID_HOME/tools/bin"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"start
 #neofetch | lolcat
 cowsay -f tux 'enjoy :)'
 #task list
