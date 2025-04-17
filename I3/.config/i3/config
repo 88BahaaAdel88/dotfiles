@@ -1,20 +1,24 @@
-
 # Set mod key to super
 set $mod Mod4
 
-font pango:Fira Code for Powerline 13
+# Font configuration
+font pango:JetBrainsMono Nerd Font 10
+
 #----------------------------Shortcuts----------------------------
-exec --no-startup-id ~/scripts/launch_polybar.sh
-
+exec --no-startup-id ~/scripts/autostart.sh
 exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id polybar
 include $HOME/.config/i3/workspaces.conf
-# gaps
 
-# Enable gaps
-gaps inner 5 
+# Gaps configuration
+gaps inner 5
 gaps outer 5
 
-default_border pixel 1
+# Border style (remove title bar)
+for_window [class=".*"] border pixel 2
+new_window pixel 2
+new_float pixel 2
+
 # Sleep
 bindsym $mod+Shift+s exec systemctl suspend
 
@@ -22,13 +26,13 @@ bindsym $mod+Shift+s exec systemctl suspend
 bindsym $mod+Shift+m move workspace to output next
 
 # Open terminal
-bindsym $mod+Return exec alacritty -o font.size=10
+bindsym $mod+Return exec kitty
 
 # Clipboard manager
 bindsym $mod+Shift+v exec diodon &
 
 # Open browser
-bindsym $mod+b exec firefox
+bindsym $mod+b exec brave
 
 # Switch to workspace
 bindsym $mod+1 workspace 1
@@ -40,8 +44,17 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-# ... repeat for 3-9 ...
 
+# Move focused window to workspace 1-9 (bspwm-like)
+bindsym $mod+Shift+1 move to workspace 1
+bindsym $mod+Shift+2 move to workspace 2
+bindsym $mod+Shift+3 move to workspace 3
+bindsym $mod+Shift+4 move to workspace 4
+bindsym $mod+Shift+5 move to workspace 5
+bindsym $mod+Shift+6 move to workspace 6
+bindsym $mod+Shift+7 move to workspace 7
+bindsym $mod+Shift+8 move to workspace 8
+bindsym $mod+Shift+9 move to workspace 9
 
 # Close focused window
 bindsym $mod+Shift+q kill
@@ -53,7 +66,7 @@ bindsym $mod+Shift+x exec xscreensaver-command -lock
 bindsym $mod+d exec rofi -show run
 
 # Emoji picker
-# bindsym $mod+e exec rofimoji
+bindsym $mod+e exec rofimoji
 
 # File manager
 bindsym $mod+BackSpace exec nemo
@@ -81,40 +94,47 @@ bindsym XF86AudioStop exec playerctl stop
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# change focus
+# Change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# move focused window
+# Move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# split in horizontal orientation
-bindsym $mod+h split h
+# Split in horizontal orientation
+# bindsym $mod+ split h
 
-# split in vertical orientation
+# Split in vertical orientation
 bindsym $mod+v split v
 
-# enter fullscreen mode for the focused container
+# Enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
+# Change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+Shift+e layout toggle split
 
-# toggle tiling / floating
+# Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
+# Change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
+# Focus the parent container
 bindsym $mod+a focus parent
+
+#-------------------------Border Colors----------------------------
+client.focused          #ffaa00 #ffaa00 #ffffff #ffaa00
+client.unfocused        #555555 #555555 #888888 #555555
+client.focused_inactive #9370DB #9370DB #ffffff #9370DB
+client.urgent           #FF0000 #FF0000 #ffffff #FF0000
+
 #-------------------------Brightness------------------------------
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
@@ -123,21 +143,13 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 bindsym Ctrl+space exec dunstctl close-all
 bindsym Ctrl+grave exec dunstctl history-pop
 
-# display
+# Display configuration
 set $sm eDP1
 set $fm HDMI1
 
-
-# reload the configuration file
+# Reload the configuration file
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# colors
-# Border settings
-client.focused          #d8a657 #d8a657 #d8a657 #d8a657
-client.unfocused        #9ece6a #9ece6a #9ece6a #9ece6a
-client.focused_inactive #9370DB #9370DB #9370DB #9370DB
-client.urgent           #FF0000 #FF0000 #FF0000 #FF0000
+# Restart i3 inplace (preserves your layout/session)
+bindsym $mod+Shift+r restart
+

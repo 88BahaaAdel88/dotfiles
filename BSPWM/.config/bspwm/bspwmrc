@@ -4,7 +4,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 xsetroot -cursor_name left_ptr
 ~/.config/polybar/launch.sh &
 #---------------------------------------------
-#bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor -d I II III IV V VI VII VIII IX X
 
 #bspc monitor eDP1 -d 󰈹   󰕼 󰙯 󰉋
 #bspc monitor eDP1 -d VI VII VIII IX X
@@ -15,14 +15,15 @@ bspc config top_padding 0
 
 # 󰈹   󰉓 󰿪    
 #bspc monitor eDP1 -d 󰼏 󰼐 󰼑 󰼒 󰼓
-bspc monitor eDP1 -d 󰎳 󰎶 󰎹 󰎼 󰽽 
-bspc monitor HDMI1 -d 󰎤 󰎧 󰎪 󰎭 󰎱
+# bspc monitor eDP1 -d 󰎳 󰎶 󰎹 󰎼 󰽽 
+# bspc monitor HDMI1 -d 󰎤 󰎧 󰎪 󰎭 󰎱
 
 bspc config automatic_scheme alternate
 bspc config remove_unplugged_monitors true
 bspc config remove_disabled_monitors true
 #----------------------------------------------
 ~/scripts/launch_polybar.sh &
+nitrogen --restore
 #####################################################
 bspc rule -a firefox:Toolkit state=floating
 bspc rule -a brave:Toolkit state=floating

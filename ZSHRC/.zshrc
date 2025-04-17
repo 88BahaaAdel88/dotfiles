@@ -134,7 +134,7 @@ alias play='xdg-open /home/b4haa7/snap/yt-dlg/22/Downloads/i.xspf'
 alias fdm=/opt/freedownloadmanager/fdm
 alias nv='nvim'
 alias cdm='cd /mnt/Storage/CS/'
-alias uu='sudo apt update && sudo apt upgrade'
+alias uu='sudo pacman -Syu'
 alias ta='task add'
 alias tl='task list'
 alias td='task done'
@@ -152,6 +152,7 @@ alias b='btop'
 alias py='python3'
 alias yt-download='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]"'
 alias yt-audio='yt-dlp -x --audio-format mp3'
+alias activate_global="source ~/my_global_venv/bin/activate"
 #paths
 export JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH
@@ -167,6 +168,7 @@ export ANDROID_HOME="$HOME/Android/Sdk"
 export PATH="$PATH:$ANDROID_HOME/tools"
 export PATH="$PATH:$ANDROID_HOME/tools/bin"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"start
+
 #neofetch | lolcat
 cowsay -f tux 'enjoy :)'
 #task list
@@ -174,6 +176,7 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 # autojump
 [[ -s /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh
 ## [Completion]
+
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /home/ienjoycaffeine/.dart-cli-completion/zsh-config.zsh ]] && . /home/ienjoycaffeine/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]

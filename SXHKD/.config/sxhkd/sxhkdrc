@@ -1,198 +1,175 @@
+
 #
-# wm independent hotkeys
+# ------------------- Window Manager Independent -------------------
 #
-#----------------------------Shorcuts-----------------------------
+
+# Move focused window to a specific monitor
 super + shift + {w,e,r}
     bspc node -m {HDMI1,eDP1,VGA1}
-#sleep
-super + shift + s
-    systemctl suspend
 
-# Move focused window to the next monitor
+# Move focused window to next monitor
 super + shift + m
     bspc node -m next
-#-----------------------------------------------------------------
 
-# scratchpads
-super + alt + {f,space,b}
-    scratch {ranger,terminal,btop}
-super + alt + t
-    ticktick &
-super + Return
-    alacritty -o font.size=10
-
-super + shift + v
-	diodon &
-
-super + b
-    brave
-
-super + {1-9}
-    bspc desktop -f ^{1-9}
-
-super + shift + q
-	bspc node -c
-
-super + shift + x
-    xscreensaver-command -lock
-
-
-
-
-super + d
-	rofi -show run
-super + e
-	rofimoji
-
-super + BackSpace
-	nemo
-
-Print
-	flameshot gui -c
-
-super + shift + n
-	variety --fast-forward
-super + shift + p
-    variety --toggle-pause
-# Hibernate
+# Sleep & Hibernate
+super + shift + s
+    systemctl suspend
 super + shift + Pause
     systemctl hibernate
 
-# -------------------------- focus/swap --------------------------
-# alt + {1,2,3,4,5,6,7,8,9,0}
-#   bspc desktop -f {I,II,III,IV,V,VI,VII,VIII,IX,X}
-#
-# ctrl + {1,2,3,4,5,6,7,8,9,0}
-#   bspc desktop -f {I,II,III,IV,V,VI,VII,VIII,IX,X}
-#
-#focus or send to the given desktop
-super + shift {1-9,0}
-	bspc node -d '^{1-9,10}'
-# ----------------------------------------------------------------
+# Lock screen
+super + shift + x
+    xscreensaver-command -lock
 
-#---------------------------Audio---------------------------------
-
-# Increase volume
-XF86AudioRaiseVolume
-    pactl set-sink-volume @DEFAULT_SINK@ +10%
-
-# Decrease volume
-XF86AudioLowerVolume
-    pactl set-sink-volume @DEFAULT_SINK@ -10%
-
-# Mute/unmute volume
-XF86AudioMute
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
-
-# Play/Pause
-XF86AudioPlay
-    playerctl play-pause
-
-# Next
-XF86AudioNext
-    playerctl next
-
-# Previous
-XF86AudioPrev
-    playerctl previous
-
-# Stop (optional)
-XF86AudioStop
-    playerctl stop
-#----------------------------------------------------------------
-#
-#------------------------foucs window----------------------------
-# Focus left
-super + h
-    bspc node -f west
-
-# Focus down
-super + j
-    bspc node -f south
-
-# Focus up
-super + k
-    bspc node -f north
-
-# Focus right
-super + l
-    bspc node -f east
-#-----------------------------------------------------------------
-#
-#---------------------------move window---------------------------
-#
-# Move window left
-super + shift + h
-    bspc node -s west
-
-# Move window down
-super + shift + j
-    bspc node -s south
-
-# Move window up
-super + shift + k
-    bspc node -s north
-
-# Move window right
-super + shift + l
-    bspc node -s east
-#-----------------------bspc & sxhkd control----------------------
-# quit/restart bspwm
+# Quit or restart bspwm
 super + alt + {q,r}
-	bspc {quit,wm -r}
-#restart sxhkd
+    bspc {quit,wm -r}
+
+# Restart sxhkd
 super + shift + r
-	pkill -USR1 -x sxhkd
-#-----------------------------------------------------------------
-#-------------------------Toggle layout---------------------------
+    pkill -USR1 -x sxhkd
+
+# Kill Focused App
+super + shift + q
+	bspc node -c
 #
-## Alternate between the tiled and monocle layout
+# ------------------------ Application Launchers -------------------
+#
+
+super + Return
+    kitty
+super + b
+    brave
+super + shift + v
+    diodon &
+super + BackSpace
+    nemo
+super + alt + t
+    ticktick &
+super + alt + {f,space,b}
+    scratch {ranger,terminal,btop}
+super + d
+    rofi -show run
+super + e
+    rofimoji
+Print
+    flameshot gui -c
+
+# Variety wallpaper control
+super + shift + n
+    variety --fast-forward
+super + shift + p
+    variety --toggle-pause
+
+#
+# -------------------------- Desktop Navigation ---------------------
+#
+
+# Switch to desktop 1–9
+super + {1-9}
+    bspc desktop -f ^{1-9}
+
+# Move focused window to desktop 1–10
+super + shift + {1-9,0}
+    bspc node -d '^{1-9,10}'
+
+#
+# ---------------------- Node Focus & Movement ----------------------
+#
+
+# Focus node in direction
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+
+# Move node in direction
+super + shift + {h,j,k,l}
+    bspc node -s {west,south,north,east}
+
+#
+# ---------------------- Window States & Layouts --------------------
+#
+
+# Toggle layouts
 super + m
     bspc desktop -l next
 
-# Focus the next window
-# super + {_,shift + }Tab
-#     bspc node -f {next,prev}.local
+# Node states
+super + t
+    bspc node -t tiled
+super + s
+    bspc node -t floating
+super + f
+    bspc node -t fullscreen
+super + g
+    bspc node -t stacked
+
+# Focus next window (fullscreen trick)
 super + Tab
     bspc node next.local -f -t fullscreen
 
-# send the newest marked node to the newest preselected node
+# Mark and swap nodes
 super + y
-	bspc node newest.marked.local -n newest.!automatic.local
-
-# swap the current node and the biggest window
+    bspc node newest.marked.local -n newest.!automatic.local
 super + g
-	bspc node -s biggest.window
-#-----------------------------------------------------------------
-#-------------------------Toggle Mode-----------------------------
+    bspc node -s biggest.window
+super + shift + y
+    bspc node -n last.local
 #
-# Tiled mode
-super + t
-    bspc node -t tiled
+# ---------------------- Audio & Media Controls ---------------------
+#
 
-# Floating mode
-super + s
-    bspc node -t floating
+XF86AudioRaiseVolume
+    pactl set-sink-volume @DEFAULT_SINK@ +10%
+XF86AudioLowerVolume
+    pactl set-sink-volume @DEFAULT_SINK@ -10%
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+XF86AudioPlay
+    playerctl play-pause
+XF86AudioNext
+    playerctl next
+XF86AudioPrev
+    playerctl previous
+XF86AudioStop
+    playerctl stop
 
-# Fullscreen mode
-super + f
-    bspc node -t fullscreen
+#
+# ------------------------ Brightness -------------------------------
+#
 
-# Stacked mode
-super + g
-    bspc node -t stacked
-#-----------------------------------------------------------------
-#-----------------------Brightness--------------------------------
-## Increase brightness
 XF86MonBrightnessUp
     brightnessctl set +10%
-
-# Decrease brightness
 XF86MonBrightnessDown
     brightnessctl set 10%-
-#-----------------------------------------------------------------
-#------------------------notifications----------------------------
+
+#
+# ------------------------ Notifications ----------------------------
+#
+
 ctrl + {space, grave}
-	dunstctl {close-all,history-pop}
-#-----------------------------------------------------------------
-#-----------------------Testing-----------------------------------
+    dunstctl {close-all,history-pop}
+
+#
+# ------------------------ Testing & Advanced -----------------------
+#
+
+# Focus or move windows in directions (combo)
+super + {_,shift + }{h,j,k,l}
+    bspc node -{f,s} {west,south,north,east}
+
+# Preselect directions
+super + ctrl + {h,j,k,l}
+    bspc node -p {west,south,north,east}
+super + ctrl + space
+    bspc node -p cancel
+
+# Node flags
+super + ctrl + {m,x,y,z}
+    bspc node -g {marked,locked,sticky,private}
+
+# Resize windows
+ctrl + alt + {h,j,k,l}
+    bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+ctrl + alt + shift + {h,j,k,l}
+    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
