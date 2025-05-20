@@ -21,9 +21,13 @@ super + shift + Pause
 super + shift + x
     xscreensaver-command -lock
 
-# Quit or restart bspwm
-super + alt + {q,r}
-    bspc {quit,wm -r}
+# Quit bspwm
+super + alt + q
+    bspc quit
+
+# Restart bspwm
+super + alt + r
+    bspc wm -r
 
 # Restart sxhkd
 super + shift + r
