@@ -2,7 +2,6 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 xsetroot -cursor_name left_ptr
-~/.config/polybar/launch.sh &
 #---------------------------------------------
 bspc monitor -d I II III IV V VI VII VIII IX X
 
@@ -29,6 +28,7 @@ bspc rule -a firefox:Toolkit state=floating
 bspc rule -a brave:Toolkit state=floating
 #bspc rule -a firefox:Navigator state=floating
 bspc rule -a Tk state=floating
+bspc rule -a Blueman-manager state=floating
 # bspc rule -a "ticktick" state=floating sticky=on center=on follow=on
 ####################
 bspc config border_width         2
@@ -44,4 +44,5 @@ bspc config active_border_color "#9370DB"
 bspc config focused_border_color "#d8a657"
 bspc config normal_border_color "#9ece6a"
 ######################################################
-
+killall -q polybar
+bash ~/.config/polybar/launch.sh --blocks

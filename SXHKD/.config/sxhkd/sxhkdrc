@@ -39,7 +39,8 @@ super + shift + q
 #
 # ------------------------ Application Launchers -------------------
 #
-
+super + shift + o
+    obsidian
 super + Return
     kitty
 super + b
