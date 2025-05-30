@@ -51,8 +51,12 @@ super + BackSpace
     nemo
 super + alt + t
     ticktick &
-super + alt + {f,space,b}
-    scratch {ranger,terminal,btop}
+# super + alt + {f,space,b}
+#     scratch {ranger,terminal,btop}
+
+super + alt + space
+    ~/scripts/scpad
+
 super + d
     rofi -show run
 super + e

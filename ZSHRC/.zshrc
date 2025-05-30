@@ -187,7 +187,8 @@ cat << 'EOF'
 
 
 EOF
-) | lolcat -F
+) 
+
 #task list
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 # autojump
