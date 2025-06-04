@@ -58,7 +58,7 @@ super + alt + space
     ~/scripts/scpad
 
 super + d
-    rofi -show run
+    rofi -show drun
 super + e
     rofimoji
 Print

@@ -29,7 +29,7 @@ bspc rule -a brave:Toolkit state=floating
 #bspc rule -a firefox:Navigator state=floating
 bspc rule -a Tk state=floating
 bspc rule -a Blueman-manager state=floating
-# bspc rule -a "ticktick" state=floating sticky=on center=on follow=on
+bspc rule -a "ticktick" state=floating center=true follow=on rectangle=1000x600+250+250
 bspc rule -a scpad sticky=on state=floating rectangle=1000x600+250+250
 ####################
 bspc config border_width         2
