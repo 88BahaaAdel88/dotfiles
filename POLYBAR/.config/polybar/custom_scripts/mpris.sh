@@ -18,7 +18,7 @@ fi
 output="${artist} - ${title}"
 
 # Trim long text
-max_length=30
+max_length=15
 if [ ${#output} -gt $max_length ]; then
     output="${output:0:$max_length}…"
 fi
