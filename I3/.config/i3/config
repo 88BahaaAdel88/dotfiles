@@ -9,8 +9,6 @@ exec_always --no-startup-id picom --backend glx
 exec --no-startup-id ~/scripts/autostart.sh
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock -- xscreensaver-command -lock
-# exec --no-startup-id ~/.config/polybar/launch.sh --blocks
-for_window [class="Polybar"] floating enable, border none
 include $HOME/.config/i3/workspaces.conf
 
 # Gaps configuration
@@ -161,6 +159,7 @@ bar {
     status_command i3status
     position top
     tray_output primary
+    # output HDMI-1
     colors {
         background #2E344099  # Nord polar night, semi-transparent
         statusline #D8DEE9    # Nord snow storm
