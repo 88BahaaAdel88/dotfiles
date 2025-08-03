@@ -8,7 +8,6 @@ font pango:JetBrainsMono Nerd Font 10
 exec_always --no-startup-id picom --backend glx
 exec --no-startup-id ~/scripts/autostart.sh
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock -- xscreensaver-command -lock
 include $HOME/.config/i3/workspaces.conf
 
 # Gaps configuration
