@@ -60,7 +60,7 @@ bindsym $mod+Shift+9 move to workspace 9
 bindsym $mod+Shift+q kill
 
 # Lock screen
-bindsym $mod+Shift+x exec xscreensaver-command -lock
+bindsym $mod+Shift+x exec betterlockscreen -l
 
 # Application launcher
 bindsym $mod+d exec rofi -show run
@@ -155,7 +155,7 @@ bindsym $mod+Shift+r restart
 
 # Bar configuration
 bar {
-    status_command i3status
+    status_command i3blocks
     position top
     tray_output primary
     # output HDMI-1
@@ -178,3 +178,8 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+BackSpace [class="kitty"] scratchpad show
 bindsym $mod+plus [class="ticktick"] scratchpad show
 bindsym $mod+0 [class="discord"] scratchpad show
+
+
+
+exec --no-startup-id betterlockscreen -u ~/Pictures/Wallpapers/ --fx dimblur
+exec --no-startup-id xautolock -time 10 -locker "betterlockscreen -l" &

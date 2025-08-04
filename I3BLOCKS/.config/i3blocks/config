@@ -1,0 +1,12 @@
+# CPU temperature
+[temp]
+command=sensors | grep 'Package id 0:' | awk '{print $4}'
+interval=5
+label=CPU:
+
+# Custom script
+[custom_script]
+command=~/scripts/my_script.sh
+interval=10
+label=MyScript:
+
