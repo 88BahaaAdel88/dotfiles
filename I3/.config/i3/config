@@ -144,8 +144,8 @@ bindsym Ctrl+space exec dunstctl close-all
 bindsym Ctrl+grave exec dunstctl history-pop
 
 # Display configuration
-set $sm eDP1
-set $fm HDMI1
+set $fm eDP1
+set $sm HDMI1
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
@@ -158,15 +158,16 @@ bar {
     status_command i3blocks
     position top
     tray_output primary
-    # output HDMI-1
+
     colors {
-        background #2E344099  # Nord polar night, semi-transparent
-        statusline #D8DEE9    # Nord snow storm
-        separator #4C566A      # Nord polar night
-        focused_workspace  #5E81AC #81A1C1 #D8DEE9
-        active_workspace   #4C566A #4C566A #D8DEE9
-        inactive_workspace #2E3440 #2E3440 #D8DEE9
-        urgent_workspace   #BF616A #BF616A #D8DEE9
+        background #1E222A       # Darker, almost black background
+        statusline #ECEFF4       # Bright snow white text
+        separator #5C6370        # Softer separator gray
+
+        focused_workspace  #61AFEF #1E222A #FFFFFF  # Blue highlight, white text
+        active_workspace   #3E4451 #3E4451 #ECEFF4  # Soft dark gray background
+        inactive_workspace #1E222A #1E222A #7F848E  # Muted gray text
+        urgent_workspace   #E06C75 #1E222A #FFFFFF  # Red alert, white text
     }
 }
 

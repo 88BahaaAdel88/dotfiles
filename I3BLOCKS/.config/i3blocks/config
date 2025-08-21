@@ -1,12 +1,74 @@
-# CPU temperature
+# i3blocks configuration file
+# Each block has: label, command, interval, and optional color settings
+
+###############################################################################
+# CPU Temperature
+###############################################################################
 [temp]
-command=sensors | grep 'Package id 0:' | awk '{print $4}'
+label=🌡️
+command=sensors | awk '/Package id 0:/ {print $4}'
 interval=5
-label=CPU:
+color=#61AFEF   
 
-# Custom script
-[custom_script]
-command=~/scripts/my_script.sh
+###############################################################################
+# Disk Usage (/)
+###############################################################################
+[disk_root]
+label=🖴 Disk:
+command=df -h / | awk 'NR==2 {print $4 " free"}'
+interval=30
+color=#61AFEF
+
+###############################################################################
+# CPU Usage
+###############################################################################
+[cpu_usage]
+label=🖥️ CPU:
+command=grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf "%.1f%%", usage}'
+interval=5
+color=#61AFEF
+
+###############################################################################
+# Memory Usage
+###############################################################################
+[memory]
+label=🧠 Mem:
+command=free -h | awk '/Mem:/ {print $3 "/" $2}'
+interval=5
+color=#61AFEF
+
+###############################################################################
+# Wireless Network
+###############################################################################
+[wireless]
+label=📶
+command=iwgetid -r && grep wlan0 /proc/net/wireless | awk '{print int($3 * 100 / 70) "%"}'
 interval=10
-label=MyScript:
+color=#61AFEF
 
+###############################################################################
+# Battery
+###############################################################################
+[battery]
+label=🔋
+command=acpi -b | awk -F', ' '{print  $2}'
+interval=30
+color=#61AFEF
+
+###############################################################################
+# Volume (PulseAudio)
+###############################################################################
+[volume]
+label=🔉
+command=pactl get-sink-volume @DEFAULT_SINK@ | awk 'NR==1 {print $5}'
+interval=5
+color=#61AFEF
+
+###############################################################################
+# Date & Time
+###############################################################################
+[time]
+label=📅
+command=date '+%Y-%m-%d 🕒 %H:%M'
+interval=60
+color=#61AFEF

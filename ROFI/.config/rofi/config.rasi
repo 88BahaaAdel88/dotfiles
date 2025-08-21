@@ -19,34 +19,44 @@ configuration {
     window-format: "{w} · {c} · {t}";
     drun-display-format: "{icon} {name}";
     show-combi: false;
+
+    /* Enable history-based sorting */
+    drun-use-history: true;
+    sorting-method: "fzf";
 }
 
 * {
-    background: rgba(30, 30, 46, 0.85);
-    background-color: rgba(30, 30, 46, 0.85);
-    border-color: #89b4fa;
-    separatorcolor: @border-color;
-
-    foreground: #cdd6f4;
-    selected-normal-background: #89b4fa;
-    selected-normal-foreground: #1e1e2e;
-    selected-active-background: #f38ba8;
-    selected-active-foreground: #1e1e2e;
-    selected-urgent-background: #fab387;
-    selected-urgent-foreground: #1e1e2e;
-
-    border-radius: 12px;
-    padding: 6px 10px;
-    margin: 0;
-    spacing: 6px;
-    text-color: @foreground;
+    selected-normal-foreground:  rgba ( 248, 248, 242, 100 % );
+    foreground:                  rgba ( 248, 248, 242, 100 % );
+    normal-foreground:           @foreground;
+    alternate-normal-background: rgba ( 39, 40, 34, 0 % );
+    selected-urgent-foreground:  rgba ( 248, 248, 242, 100 % );
+    urgent-foreground:           rgba ( 249, 38, 114, 100 % );
+    alternate-urgent-background: rgba ( 39, 40, 34, 0 % );
+    active-foreground:           rgba ( 166, 226, 42, 100 % );
+    lightbg:                     rgba ( 238, 232, 213, 100 % );
+    selected-active-foreground:  rgba ( 166, 226, 42, 100 % );
+    alternate-active-background: rgba ( 39, 40, 34, 0 % );
+    background:                  rgba ( 39, 40, 34, 93 % );
+    bordercolor:                 rgba ( 0, 43, 54, 100 % );
+    alternate-normal-foreground: @foreground;
+    normal-background:           rgba ( 39, 40, 34, 0 % );
+    selected-normal-background:  rgba ( 20, 20, 17, 100 % );
+    separatorcolor:              rgba ( 230, 219, 116, 100 % );
+    urgent-background:           rgba ( 39, 40, 34, 0 % );
+    selected-urgent-background:  rgba ( 249, 38, 114, 100 % );
+    alternate-urgent-foreground: @urgent-foreground;
+    background-color:            transparent;
+    alternate-active-foreground: @active-foreground;
+    active-background:           rgba ( 39, 40, 34, 0 % );
+    selected-active-background:  rgba ( 20, 20, 17, 100 % );
 }
 
 window {
     transparency: "real";
     width: 800;
     border: 2px;
-    border-radius: 16px;
+    border-radius: 18px;
     padding: 20px;
 }
 
@@ -56,7 +66,7 @@ mainbox {
 }
 
 listview {
-    columns: 2;
+    columns: 1;
     lines: 6;
     spacing: 8px;
     scrollbar: false;
@@ -64,7 +74,7 @@ listview {
 
 element {
     padding: 5px 10px;
-    border-radius: 10px;
+    border-radius: 12px;
     background-color: transparent;
 }
 
@@ -80,7 +90,7 @@ element-icon {
 
 entry {
     padding: 10px;
-    background-color: #1e1e2e;
+    background-color: rgba(30, 30, 46, 0.95);
     text-color: #cdd6f4;
     font: "JetBrainsMono Nerd Font 13";
     border-radius: 8px;
