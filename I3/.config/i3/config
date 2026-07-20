@@ -1,0 +1,180 @@
+# Set mod key to super
+set $mod Mod4
+
+# Font configuration
+font pango:JetBrainsMono Nerd Font 10
+
+#----------------------------Shortcuts----------------------------
+exec_always --no-startup-id picom --backend glx
+exec --no-startup-id ~/scripts/autostart.sh
+exec --no-startup-id dex --autostart --environment i3
+include $HOME/.config/i3/workspaces.conf
+
+# Gaps configuration
+gaps inner 3
+gaps outer 3
+
+# Border style (remove title bar)
+for_window [class=".*"] border pixel 2
+new_window pixel 2
+new_float pixel 2
+
+# Sleep
+bindsym $mod+Shift+s exec systemctl suspend
+
+# Move focused window to the next monitor
+bindsym $mod+Shift+m move workspace to output next
+
+# Open terminal
+bindsym $mod+Return exec kitty
+
+# Clipboard manager
+bindsym $mod+Shift+v exec diodon &
+
+# Open browser
+bindsym $mod+b exec brave
+
+# Switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+
+# Move focused window to workspace 1-9 (bspwm-like)
+bindsym $mod+Shift+1 move to workspace 1
+bindsym $mod+Shift+2 move to workspace 2
+bindsym $mod+Shift+3 move to workspace 3
+bindsym $mod+Shift+4 move to workspace 4
+bindsym $mod+Shift+5 move to workspace 5
+bindsym $mod+Shift+6 move to workspace 6
+bindsym $mod+Shift+7 move to workspace 7
+bindsym $mod+Shift+8 move to workspace 8
+bindsym $mod+Shift+9 move to workspace 9
+
+# Close focused window
+bindsym $mod+Shift+q kill
+
+# Lock screen
+bindsym $mod+Shift+x exec xscreensaver-command -lock
+
+# Application launcher
+bindsym $mod+d exec rofi -show run
+
+# Emoji picker
+bindsym $mod+comma exec rofimoji
+
+# File manager
+bindsym $mod+e exec nautilus
+
+# Screenshot tool
+bindsym Print exec flameshot gui -c
+
+# Change wallpaper (Variety)
+bindsym $mod+Shift+n exec variety --fast-forward
+bindsym $mod+Shift+p exec variety --toggle-pause
+
+# Hibernate
+bindsym $mod+Shift+Pause exec systemctl hibernate
+
+#---------------------------Audio---------------------------------
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioStop exec playerctl stop
+
+#-------------------------Layouts---------------------------------
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Split in horizontal orientation
+bindsym $mod+ split h
+
+# Split in vertical orientation
+bindsym $mod+v split v
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+Shift+e layout toggle split
+
+# Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# Focus the parent container
+bindsym $mod+a focus parent
+
+#-------------------------Border Colors----------------------------
+client.focused          #ffaa00 #ffaa00 #ffffff #ffaa00
+client.unfocused        #555555 #555555 #888888 #555555
+client.focused_inactive #9370DB #9370DB #ffffff #9370DB
+client.urgent           #FF0000 #FF0000 #ffffff #FF0000
+
+#-------------------------Brightness------------------------------
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+
+#------------------------Notifications----------------------------
+bindsym Ctrl+space exec dunstctl close-all
+bindsym Ctrl+grave exec dunstctl history-pop
+
+# Display configuration
+set $sm eDP1
+set $fm HDMI1
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Restart i3 inplace (preserves your layout/session)
+bindsym $mod+Shift+r restart
+
+# Bar configuration
+bar {
+    status_command i3status
+    position top
+    tray_output primary
+    # output HDMI-1
+    colors {
+        background #2E344099  # Nord polar night, semi-transparent
+        statusline #D8DEE9    # Nord snow storm
+        separator #4C566A      # Nord polar night
+        focused_workspace  #5E81AC #81A1C1 #D8DEE9
+        active_workspace   #4C566A #4C566A #D8DEE9
+        inactive_workspace #2E3440 #2E3440 #D8DEE9
+        urgent_workspace   #BF616A #BF616A #D8DEE9
+    }
+}
+
+# Move focused window to scratchpad
+bindsym $mod+Shift+minus move scratchpad
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+# Show a specific scratchpad window (e.g., a terminal with class "Termite")
+bindsym $mod+BackSpace [class="kitty"] scratchpad show
+bindsym $mod+plus [class="ticktick"] scratchpad show
+bindsym $mod+0 [class="discord"] scratchpad show

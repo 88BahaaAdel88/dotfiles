@@ -1,0 +1,184 @@
+
+#
+# ------------------- Window Manager Independent -------------------
+#
+
+# Move focused window to a specific monitor
+super + shift + {w,e,r}
+    bspc node -m {HDMI1,eDP1,VGA1}
+
+# Move focused window to next monitor
+super + shift + m
+    bspc node -m next
+
+# Sleep & Hibernate
+super + shift + s
+    systemctl suspend
+super + shift + Pause
+    systemctl hibernate
+
+# Lock screen
+super + shift + x
+    xscreensaver-command -lock
+
+# Quit bspwm
+super + alt + q
+    bspc quit
+
+# Restart bspwm
+super + alt + r
+    bspc wm -r
+
+# Restart sxhkd
+super + shift + r
+    pkill -USR1 -x sxhkd
+
+# Kill Focused App
+super + shift + q
+	bspc node -c
+#
+# ------------------------ Application Launchers -------------------
+#
+super + shift + o
+    obsidian
+super + Return
+    kitty
+super + b
+    brave
+super + shift + v
+    diodon &
+super + BackSpace
+    nemo
+super + alt + t
+    ticktick &
+# super + alt + {f,space,b}
+#     scratch {ranger,terminal,btop}
+
+super + alt + space
+    ~/scripts/scpad
+
+super + d
+    rofi -show drun
+super + e
+    rofimoji
+Print
+    flameshot gui -c
+
+# Variety wallpaper control
+super + shift + n
+    variety --fast-forward
+super + shift + p
+    variety --toggle-pause
+
+#
+# -------------------------- Desktop Navigation ---------------------
+#
+
+# Switch to desktop 1–9
+super + {1-9}
+    bspc desktop -f ^{1-9}
+
+# Move focused window to desktop 1–10
+super + shift + {1-9,0}
+    bspc node -d '^{1-9,10}'
+
+#
+# ---------------------- Node Focus & Movement ----------------------
+#
+
+# Focus node in direction
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+
+# Move node in direction
+super + shift + {h,j,k,l}
+    bspc node -s {west,south,north,east}
+
+#
+# ---------------------- Window States & Layouts --------------------
+#
+
+# Toggle layouts
+super + m
+    bspc desktop -l next
+
+# Node states
+super + t
+    bspc node -t tiled
+super + s
+    bspc node -t floating
+super + f
+    bspc node -t fullscreen
+super + g
+    bspc node -t stacked
+
+# Focus next window (fullscreen trick)
+super + Tab
+    bspc node next.local -f -t fullscreen
+
+# Mark and swap nodes
+super + y
+    bspc node newest.marked.local -n newest.!automatic.local
+super + g
+    bspc node -s biggest.window
+super + shift + y
+    bspc node -n last.local
+#
+# ---------------------- Audio & Media Controls ---------------------
+#
+
+XF86AudioRaiseVolume
+    pactl set-sink-volume @DEFAULT_SINK@ +10%
+XF86AudioLowerVolume
+    pactl set-sink-volume @DEFAULT_SINK@ -10%
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+XF86AudioPlay
+    playerctl play-pause
+XF86AudioNext
+    playerctl next
+XF86AudioPrev
+    playerctl previous
+XF86AudioStop
+    playerctl stop
+
+#
+# ------------------------ Brightness -------------------------------
+#
+
+XF86MonBrightnessUp
+    brightnessctl set +10%
+XF86MonBrightnessDown
+    brightnessctl set 10%-
+
+#
+# ------------------------ Notifications ----------------------------
+#
+
+ctrl + {space, grave}
+    dunstctl {close-all,history-pop}
+
+#
+# ------------------------ Testing & Advanced -----------------------
+#
+
+# Focus or move windows in directions (combo)
+super + {_,shift + }{h,j,k,l}
+    bspc node -{f,s} {west,south,north,east}
+
+# Preselect directions
+super + ctrl + {h,j,k,l}
+    bspc node -p {west,south,north,east}
+super + ctrl + space
+    bspc node -p cancel
+
+# Node flags
+super + ctrl + {m,x,y,z}
+    bspc node -g {marked,locked,sticky,private}
+
+# Resize windows
+ctrl + alt + {h,j,k,l}
+    bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+ctrl + alt + shift + {h,j,k,l}
+    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
