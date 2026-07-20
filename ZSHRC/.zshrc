@@ -126,10 +126,10 @@ function chpwd() {
 alias logind='sudo nvim /etc/systemd/logind.conf'
 alias sound='pavucontrol'
 alias cdl='cd $(<~/.last_dir)'
-alias mstorage='sudo mount /dev/sda1 /media/b4haa7/Storage'
+alias mstorage='sudo mount /dev/sda1 /media/$USER/Storage'
 alias copy='xsel --input --clipboard'
 alias paste='xsel --output --clipboard'
-alias play='xdg-open /home/b4haa7/snap/yt-dlg/22/Downloads/i.xspf'
+alias play='xdg-open /home/$USER/snap/yt-dlg/22/Downloads/i.xspf'
 #alias rm='echo "This is not the command you are looking for."; false'
 alias fdm=/opt/freedownloadmanager/fdm
 alias nv='nvim'
@@ -156,11 +156,11 @@ alias activate_global="source ~/my_global_venv/bin/activate"
 #paths
 export JAVA_HOME=/usr/lib/jvm/java-14-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH
-export PATH="$PATH:/home/b4haa7/.local/bin"
+export PATH="$PATH:/home/$USER/.local/bin"
 export EDITOR='nvim'
-export PATH=$PATH:/home/ienjoycaffeine/apps/pycharm/bin
+export PATH=$PATH:/home/$USER/apps/pycharm/bin
 export PATH=$HOME/apps:$PATH
-export PATH=$PATH:/home/ienjoycaffeine/scripts/
+export PATH=$PATH:/home/$USER/scripts/
 export ANDROID_HOME="$HOME/Android/Sdk"
 export PATH="$PATH:$ANDROID_HOME/tools"
 export PATH="$PATH:$ANDROID_HOME/tools/bin"
@@ -196,7 +196,7 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 ## [Completion]
 
 ## Completion scripts setup. Remove the following line to uninstall
-[[ -f /home/ienjoycaffeine/.dart-cli-completion/zsh-config.zsh ]] && . /home/ienjoycaffeine/.dart-cli-completion/zsh-config.zsh || true
+[[ -f /home/$USER/.dart-cli-completion/zsh-config.zsh ]] && . /home/$USER/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
 
@@ -209,4 +209,4 @@ export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
 export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
 
 # Created by `pipx` on 2025-06-05 21:01:00
-export PATH="$PATH:/home/ienjoycaffeine/.local/bin"
+export PATH="$PATH:/home/$USER/.local/bin"
