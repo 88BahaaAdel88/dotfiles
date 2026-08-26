@@ -44,7 +44,7 @@ super + shift + o
 super + Return
     kitty
 super + b
-    brave
+    zen-browser
 super + shift + v
     diodon &
 super + BackSpace
@@ -62,7 +62,7 @@ super + d
 super + e
     rofimoji
 Print
-    flameshot gui -c
+    spectacle -r -b
 
 # Variety wallpaper control
 super + shift + n

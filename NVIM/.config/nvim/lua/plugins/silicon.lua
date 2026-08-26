@@ -4,8 +4,8 @@ return {
         vim.keymap.set("v", "<leader>ss", ":Silicon<CR>")
         vim.keymap.set("n", "<leader>sa", "vgg<ESC>VG:Silicon<CR>")
         local home = os.getenv("HOME")
-        require("silicon").setup({
-            font = "RobotoMono Nerd Font =22;Noto Color Emoji",
+        require("nvim-silicon").setup({
+            font = "RobotoMono Nerd Font=22;Noto Color Emoji",
             theme = "Dracula",
             pad_horiz = 80,
             pad_vert = 60,

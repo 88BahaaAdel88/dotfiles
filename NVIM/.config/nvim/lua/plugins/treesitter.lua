@@ -1,29 +1,18 @@
 return {
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-        config = function()
-            local config = require("nvim-treesitter.configs")
-            config.setup({
-                auto_install = true,
-                sync_install = true,
-                highlight = {
-                    enable = true,
-                    additional_vim_regex_highlighting = false,
-                },
-                indent = { enable = true },
-            })
-        end,
-    },
-    {
-        "norcalli/nvim-colorizer.lua",
-        config = function()
-            require("colorizer").setup()
-        end,
-    },
-    {
-        'windwp/nvim-autopairs',
-        event = "InsertEnter",
-        config = true
-    }
+  "nvim-treesitter/nvim-treesitter",
+  lazy = false,
+  build = ":TSUpdate",
+  config = function()
+    local ts = require("nvim-treesitter")
+    
+    -- Install your preferred parsers
+    ts.install({ "bash", "c", "lua", "vim", "vimdoc", "query", "python", "markdown" })
+
+    -- Enable highlighting automatically on FileType
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function()
+        pcall(vim.treesitter.start)
+      end,
+    })
+  end,
 }
