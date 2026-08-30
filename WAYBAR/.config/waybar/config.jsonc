@@ -1,0 +1,78 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "margin-top": 6,
+    "margin-left": 10,
+    "margin-right": 10,
+    "spacing": 4,
+
+    "modules-left": ["custom/power", "clock", "hyprland/workspaces"],
+    "modules-center": [],
+    "modules-right": ["custom/data-usage", "temperature", "hyprland/language", "backlight", "pulseaudio", "bluetooth", "network", "battery", "tray"],
+
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "on-click": "activate",
+        "disable-scroll": true
+    },
+
+    "clock": {
+        "format": "{:%I:%M %p  ·  %a, %b %d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "temperature": {
+        "critical-threshold": 80,
+        "format": " {temperatureC}°C",
+        "format-critical": " {temperatureC}°C",
+        "interval": 2
+    },
+
+    "pulseaudio": {
+        "format": "󰕾 {volume}%",
+        "format-muted": "󰖁 Muted",
+        "on-click": "pavucontrol"
+    },
+
+    "network": {
+        "format-wifi": "󰤨 {essid}",
+        "format-ethernet": "󰈀 Wired",
+        "format-disconnected": "󰤭 Disconnected"
+    },
+
+    "battery": {
+        "states": { "warning": 30, "critical": 15 },
+        "format": "󰁹 {capacity}%",
+        "format-charging": "󰂄 {capacity}%"
+    },
+
+    "tray": {
+        "spacing": 10
+    },
+    "bluetooth": {
+    "format": " {status}",
+    "format-disabled": " Off",
+    "format-connected": " {num_connections} Connected",
+    "tooltip-format": "{controller_alias}\n{num_connections} connected",
+    "on-click": "blueman-manager"
+    },
+    "backlight": {
+    "device": "amdgpu_bl1",
+    "format": "󰃟 {percent}%",
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-"
+    },
+    "custom/data-usage": {
+    "exec": "~/.config/waybar/scripts/data-usage.sh",
+    "return-type": "json",
+    "interval": 60,
+    "tooltip": true
+    },
+    "custom/power": {
+    "format": "󰐥",
+    "tooltip": "Power Menu",
+    "on-click": "wlogout"
+    }
+
+}
