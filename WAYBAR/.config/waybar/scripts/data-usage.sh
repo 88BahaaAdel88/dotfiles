@@ -2,32 +2,22 @@
 
 IFACE="wlan0"
 
-DATA=$(vnstat -i "$IFACE" --json d 2>/dev/null)
+DATA=$(vnstat -i "$IFACE" --oneline 2>/dev/null)
 
-RX=$(echo "$DATA" | jq -r '.interfaces[0].traffic.day[0].rx')
-TX=$(echo "$DATA" | jq -r '.interfaces[0].traffic.day[0].tx')
-
-if [[ "$RX" == "null" || "$TX" == "null" ]]; then
-    echo '{"text":"󰤨 --","tooltip":"No traffic data available"}'
+if [[ -z "$DATA" ]]; then
+    echo '{"text":"󰤨 --","tooltip":"vnStat unavailable"}'
     exit 0
 fi
 
-TOTAL=$((RX + TX))
+# vnStat --oneline fields:
+# 3 = today's date
+# 4 = RX today
+# 5 = TX today
+# 6 = total today
 
-format_bytes() {
-    local bytes=$1
+DATE=$(echo "$DATA" | cut -d';' -f3)
+RX=$(echo "$DATA" | cut -d';' -f4)
+TX=$(echo "$DATA" | cut -d';' -f5)
+TOTAL=$(echo "$DATA" | cut -d';' -f6)
 
-    if (( bytes >= 1073741824 )); then
-        awk "BEGIN {printf \"%.2f GB\", $bytes/1073741824}"
-    elif (( bytes >= 1048576 )); then
-        awk "BEGIN {printf \"%.1f MB\", $bytes/1048576}"
-    else
-        awk "BEGIN {printf \"%.0f KB\", $bytes/1024}"
-    fi
-}
-
-RX_FORMAT=$(format_bytes "$RX")
-TX_FORMAT=$(format_bytes "$TX")
-TOTAL_FORMAT=$(format_bytes "$TOTAL")
-
-echo "{\"text\":\"󰤨 $TOTAL_FORMAT\",\"tooltip\":\"Today\\n󰁅 Download: $RX_FORMAT\\n󰁆 Upload:   $TX_FORMAT\\n󰍛 Total:    $TOTAL_FORMAT\"}"
+echo "{\"text\":\"󰤨 $TOTAL\",\"tooltip\":\"Today ($DATE)\\n󰁅 Download: $RX\\n󰁆 Upload:   $TX\\n󰍛 Total:    $TOTAL\"}"
