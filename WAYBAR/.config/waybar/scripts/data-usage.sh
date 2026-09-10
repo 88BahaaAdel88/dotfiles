@@ -1,6 +1,7 @@
 #!/bin/bash
 
 IFACE="wlan0"
+# IFACE="enp5s0f3u2"
 
 DATA=$(vnstat -i "$IFACE" --oneline 2>/dev/null)
 
