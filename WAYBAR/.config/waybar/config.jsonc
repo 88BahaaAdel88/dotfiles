@@ -32,7 +32,10 @@
     "pulseaudio": {
         "format": "󰕾 {volume}%",
         "format-muted": "󰖁 Muted",
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "on-click-middle": "~/.config/waybar/scripts/audio-output-cycle.sh",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "tooltip-format": "{desc} - {volume}%"
     },
 
     "network": {
