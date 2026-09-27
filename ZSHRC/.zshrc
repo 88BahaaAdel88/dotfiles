@@ -210,3 +210,8 @@ export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
 
 # Created by `pipx` on 2025-06-05 21:01:00
 export PATH="$PATH:/home/$USER/.local/bin"
+export PATH="$HOME/.local/npm/bin:$PATH"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/bahaa/.local/bin:$PATH"

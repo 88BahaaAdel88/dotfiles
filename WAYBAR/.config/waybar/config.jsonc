@@ -9,7 +9,7 @@
 
     "modules-left": ["custom/power", "clock", "hyprland/workspaces", "custom/hyprsunset"],
     "modules-center": [],
-    "modules-right": ["custom/data-usage", "temperature", "hyprland/language", "backlight", "pulseaudio", "bluetooth", "network", "battery", "tray"],
+    "modules-right": ["custom/data-usage", "temperature", "hyprland/language", "backlight", "custom/microphone", "pulseaudio", "bluetooth", "network", "battery", "tray"],
 
     "hyprland/workspaces": {
         "format": "{id}",
@@ -86,5 +86,12 @@
     "on-click-middle": "~/.config/waybar/scripts/hyprsunset.sh auto",
     "tooltip": true,
     "tooltip-format": "Left: Change temperature\nRight: Disable\nMiddle: Automatic"
+    },
+    "custom/microphone": {
+    "exec": "~/.config/waybar/scripts/microphone.sh",
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-click-right": "pavucontrol"
     }
 }

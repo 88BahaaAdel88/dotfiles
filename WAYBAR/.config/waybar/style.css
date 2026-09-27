@@ -11,7 +11,7 @@ window#waybar {
     color: #cdd6f4;
 }
 
-#workspaces, #language, #bluetooth, #clock, #pulseaudio, #network, #battery, #tray, #temperature , #backlight, #custom-data-usage, #custom-power, #custom-hyprsunset
+#workspaces, #language, #bluetooth, #clock, #pulseaudio, #network, #battery, #tray, #temperature , #backlight, #custom-data-usage, #custom-power, #custom-hyprsunset, #custom-microphone
 {
     background: rgba(30, 30, 46, 0.85);
     padding: 4px 14px;
@@ -90,4 +90,11 @@ window#waybar {
 
 #custom-hyprsunset.manual {
     color: #f9e2af;
+}
+#custom-microphone {
+    color: #a6e3a1;
+}
+
+#custom-microphone.muted {
+    color: #f38ba8;
 }
