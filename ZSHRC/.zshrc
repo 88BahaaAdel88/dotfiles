@@ -18,7 +18,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-#ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -135,9 +134,9 @@ alias fdm=/opt/freedownloadmanager/fdm
 alias nv='nvim'
 alias cdm='cd /mnt/Storage/CS/'
 alias uu='sudo pacman -Syu'
-alias ta='task add'
-alias tl='task list'
-alias td='task done'
+# alias ta='task add'
+# alias tl='task list'
+# alias td='task done'
 alias gg='git add . && git commit -m "alias" && git push'
 alias ..='cd ..' 
 alias ...='cd ../..' 
