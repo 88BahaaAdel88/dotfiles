@@ -91,7 +91,8 @@
     "exec": "~/.config/waybar/scripts/microphone.sh",
     "return-type": "json",
     "interval": 1,
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "signal": 8,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && pkill -RTMIN+8 waybar",
     "on-click-right": "pavucontrol"
     }
 }

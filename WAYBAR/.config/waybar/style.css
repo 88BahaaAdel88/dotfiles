@@ -95,6 +95,8 @@ window#waybar {
     color: #a6e3a1;
 }
 
-#custom-microphone.muted {
+#custom-microphone.muted,
+#custom-microphone.error {
     color: #f38ba8;
+    border-color: #f38ba8;
 }

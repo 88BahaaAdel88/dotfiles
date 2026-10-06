@@ -16,14 +16,30 @@ if [[ -z "$WIFI_DATA" && -z "$ETH_DATA" ]]; then
     exit 0
 fi
 
-# Get today's values
-WIFI_RX=$(echo "$WIFI_DATA" | cut -d';' -f4)
-WIFI_TX=$(echo "$WIFI_DATA" | cut -d';' -f5)
-WIFI_TOTAL=$(echo "$WIFI_DATA" | cut -d';' -f6)
+DATE=$(date '+%Y-%m-%d')
 
-ETH_RX=$(echo "$ETH_DATA" | cut -d';' -f4)
-ETH_TX=$(echo "$ETH_DATA" | cut -d';' -f5)
-ETH_TOTAL=$(echo "$ETH_DATA" | cut -d';' -f6)
+# Get today's values
+WIFI_DATE=$(echo "$WIFI_DATA" | cut -d';' -f3)
+if [[ "$WIFI_DATE" == "$DATE" ]]; then
+    WIFI_RX=$(echo "$WIFI_DATA" | cut -d';' -f4)
+    WIFI_TX=$(echo "$WIFI_DATA" | cut -d';' -f5)
+    WIFI_TOTAL=$(echo "$WIFI_DATA" | cut -d';' -f6)
+else
+    WIFI_RX="0 MiB"
+    WIFI_TX="0 MiB"
+    WIFI_TOTAL="0 MiB"
+fi
+
+ETH_DATE=$(echo "$ETH_DATA" | cut -d';' -f3)
+if [[ "$ETH_DATE" == "$DATE" ]]; then
+    ETH_RX=$(echo "$ETH_DATA" | cut -d';' -f4)
+    ETH_TX=$(echo "$ETH_DATA" | cut -d';' -f5)
+    ETH_TOTAL=$(echo "$ETH_DATA" | cut -d';' -f6)
+else
+    ETH_RX="0 MiB"
+    ETH_TX="0 MiB"
+    ETH_TOTAL="0 MiB"
+fi
 
 # Convert vnStat values to MiB
 to_mib() {
@@ -74,7 +90,5 @@ format_size() {
 TOTAL_RX=$(format_size "$TOTAL_RX")
 TOTAL_TX=$(format_size "$TOTAL_TX")
 TOTAL=$(format_size "$TOTAL")
-
-DATE=$(date '+%Y-%m-%d')
 
 echo "{\"text\":\"󰤨 $TOTAL\",\"tooltip\":\"Today ($DATE)\\n\\n󰍛 Total:    $TOTAL\\n󰁅 Download: $TOTAL_RX\\n󰁆 Upload:   $TOTAL_TX\\n\\n󰤨 Wi-Fi:    $WIFI_TOTAL\\n󰈀 Ethernet: $ETH_TOTAL\"}"
