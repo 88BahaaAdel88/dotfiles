@@ -11,23 +11,25 @@ window#waybar {
     color: #cdd6f4;
 }
 
-#workspaces, #language, #bluetooth, #clock, #pulseaudio, #network, #battery, #tray, #temperature , #backlight, #custom-data-usage, #custom-power, #custom-hyprsunset, #custom-microphone
+#workspaces, #language, #bluetooth, #clock, #pulseaudio, #network, #battery, #tray, #temperature, #backlight, #custom-data-usage, #custom-power, #custom-hyprsunset, #custom-microphone, #custom-prayer, #custom-media
 {
     background: rgba(30, 30, 46, 0.85);
     padding: 4px 14px;
     margin: 0px 4px;
-    border-radius: 8px;
+    border-radius: 18px;
     border: 1px solid rgba(88, 91, 112, 0.4);
 }
 
 #workspaces button {
-    padding: 0 5px;
+    padding: 0 6px;
     color: #6c7086;
     background: transparent;
+    border-radius: 12px;
 }
 
 #workspaces button.active {
     color: #89b4fa;
+    background: rgba(137, 180, 250, 0.18);
 }
 
 #workspaces button:hover {
@@ -37,6 +39,27 @@ window#waybar {
 
 #clock {
     color: #cdd6f4;
+}
+
+#custom-prayer {
+    color: #cba6f7;
+}
+
+#custom-media {
+    color: #f5c2e7;
+}
+
+#custom-media.playing {
+    color: #f5c2e7;
+}
+
+#custom-media.paused {
+    color: #f9e2af;
+}
+
+#custom-media.stopped,
+#custom-media.none {
+    color: #6c7086;
 }
 
 #pulseaudio {
@@ -68,18 +91,23 @@ window#waybar {
 #bluetooth {
     color: #cba6f7;
 }
+
 #language {
     color: #f5c2e7;
 }
+
 #custom-data-usage {
     color: #89dceb;
 }
+
 #backlight {
     color: #f9e2af;
 }
+
 #custom-power {
     color: #f38ba8;
 }
+
 #custom-hyprsunset {
     color: #f9e2af;
 }
@@ -91,6 +119,7 @@ window#waybar {
 #custom-hyprsunset.manual {
     color: #f9e2af;
 }
+
 #custom-microphone {
     color: #a6e3a1;
 }

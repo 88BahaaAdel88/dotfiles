@@ -1,98 +1,147 @@
-{
-    "layer": "top",
-    "position": "top",
-    "height": 34,
-    "margin-top": 6,
-    "margin-left": 10,
-    "margin-right": 10,
-    "spacing": 4,
+[
+    {
+        "name": "waybar-top",
+        "layer": "top",
+        "position": "top",
+        "height": 34,
+        "margin-top": 6,
+        "margin-left": 10,
+        "margin-right": 10,
+        "spacing": 4,
 
-    "modules-left": ["custom/power", "clock", "hyprland/workspaces", "custom/hyprsunset"],
-    "modules-center": [],
-    "modules-right": ["custom/data-usage", "temperature", "hyprland/language", "backlight", "custom/microphone", "pulseaudio", "bluetooth", "network", "battery", "tray"],
+        "modules-left": ["custom/power", "custom/prayer", "hyprland/workspaces"],
+        "modules-center": ["clock"],
+        "modules-right": ["temperature", "battery", "pulseaudio", "custom/microphone", "tray"],
 
-    "hyprland/workspaces": {
-        "format": "{id}",
-        "on-click": "activate",
-        "disable-scroll": true
-    },
+        "hyprland/workspaces": {
+            "format": "{id}",
+            "on-click": "activate",
+            "disable-scroll": true
+        },
 
-    "clock": {
-        "format": "{:%I:%M %p  ·  %a, %b %d}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    },
+        "clock": {
+            "format": "{:%I:%M %p  ·  %a, %b %d}",
+            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        },
 
-    "temperature": {
-        "critical-threshold": 80,
-        "format": " {temperatureC}°C",
-        "format-critical": " {temperatureC}°C",
-        "interval": 2
-    },
+        "temperature": {
+            "critical-threshold": 80,
+            "format": " {temperatureC}°C",
+            "format-critical": " {temperatureC}°C",
+            "interval": 2
+        },
 
-    "pulseaudio": {
-        "format": "󰕾 {volume}%",
-        "format-muted": "󰖁 Muted",
-        "on-click": "pavucontrol",
-        "on-click-middle": "~/.config/waybar/scripts/audio-output-cycle.sh",
-        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "tooltip-format": "{desc} - {volume}%"
-    },
+        "battery": {
+            "states": { "warning": 30, "critical": 15 },
+            "format": "󰁹 {capacity}%",
+            "format-charging": "󰂄 {capacity}%"
+        },
 
-    "network": {
-        "format-wifi": "󰤨 {essid}",
-        "format-ethernet": "󰈀 Wired",
-        "format-disconnected": "󰤭 Disconnected"
-    },
+        "pulseaudio": {
+            "format": "󰕾 {volume}%",
+            "format-muted": "󰖁 Muted",
+            "on-click": "pavucontrol",
+            "on-click-middle": "~/.config/waybar/scripts/audio-output-cycle.sh",
+            "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+            "tooltip-format": "{desc} - {volume}%"
+        },
 
-    "battery": {
-        "states": { "warning": 30, "critical": 15 },
-        "format": "󰁹 {capacity}%",
-        "format-charging": "󰂄 {capacity}%"
-    },
+        "custom/microphone": {
+            "exec": "~/.config/waybar/scripts/microphone.sh",
+            "return-type": "json",
+            "interval": 1,
+            "signal": 8,
+            "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && pkill -RTMIN+8 waybar",
+            "on-click-right": "pavucontrol"
+        },
 
-    "tray": {
-        "spacing": 10
+        "tray": {
+            "spacing": 10
+        },
+
+        "custom/power": {
+            "format": "󰐥",
+            "tooltip": "Power Menu",
+            "on-click": "wlogout"
+        },
+
+        "custom/prayer": {
+            "exec": "~/.config/hypr/scripts/prayer.sh",
+            "interval": 30,
+            "tooltip": false
+        }
     },
-    "bluetooth": {
-    "format": " {status}",
-    "format-disabled": " Off",
-    "format-connected": " {num_connections} Connected",
-    "tooltip-format": "{controller_alias}\n{num_connections} connected",
-    "on-click": "blueman-manager"
-    },
-    "backlight": {
-    "device": "amdgpu_bl1",
-    "format": "󰃟 {percent}%",
-    "on-scroll-up": "brightnessctl set 5%+",
-    "on-scroll-down": "brightnessctl set 5%-"
-    },
-    "custom/data-usage": {
-    "exec": "~/.config/waybar/scripts/data-usage.sh",
-    "return-type": "json",
-    "interval": 60,
-    "tooltip": true
-    },
-    "custom/power": {
-    "format": "󰐥",
-    "tooltip": "Power Menu",
-    "on-click": "wlogout"
-    },
-    "custom/hyprsunset": {
-    "exec": "~/.config/waybar/scripts/hyprsunset.sh",
-    "return-type": "json",
-    "interval": 60,
-    "on-click": "~/.config/waybar/scripts/hyprsunset.sh next",
-    "on-click-right": "~/.config/waybar/scripts/hyprsunset.sh off",
-    "on-click-middle": "~/.config/waybar/scripts/hyprsunset.sh auto",
-    "tooltip": true,
-    "tooltip-format": "Left: Change temperature\nRight: Disable\nMiddle: Automatic"
-    },
-    "custom/microphone": {
-    "exec": "~/.config/waybar/scripts/microphone.sh",
-    "return-type": "json",
-    "interval": 1,
-    "signal": 8,
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && pkill -RTMIN+8 waybar",
-    "on-click-right": "pavucontrol"
+    {
+        "name": "waybar-bottom",
+        "layer": "top",
+        "position": "bottom",
+        "height": 34,
+        "margin-bottom": 6,
+        "margin-left": 10,
+        "margin-right": 10,
+        "spacing": 4,
+
+        "modules-left": ["custom/media"],
+        "modules-center": [],
+        "modules-right": ["custom/data-usage", "network", "bluetooth", "backlight", "custom/hyprsunset", "hyprland/language"],
+
+        "custom/media": {
+            "exec": "~/.config/waybar/scripts/media.sh",
+            "return-type": "json",
+            "interval": 2,
+            "max-length": 45,
+            "format": "{}",
+            "on-click": "playerctl play-pause && pkill -RTMIN+9 waybar",
+            "on-scroll-up": "playerctl next && pkill -RTMIN+9 waybar",
+            "on-scroll-down": "playerctl previous && pkill -RTMIN+9 waybar",
+            "signal": 9
+        },
+
+        "custom/data-usage": {
+            "exec": "~/.config/waybar/scripts/data-usage.sh",
+            "return-type": "json",
+            "interval": 60,
+            "tooltip": true
+        },
+
+        "hyprland/language": {
+            "format": "{short}"
+        },
+
+        "network": {
+            "format-wifi": "󰤨",
+            "format-ethernet": "󰈀",
+            "format-disconnected": "󰤭",
+            "tooltip-format-wifi": "󰤨  {essid} ({signalStrength}%)\n⇣ {bandwidthDownBytes}  ⇡ {bandwidthUpBytes}\n{ipaddr}/{cidr}",
+            "tooltip-format-ethernet": "󰈀  {ifname}\n⇣ {bandwidthDownBytes}  ⇡ {bandwidthUpBytes}\n{ipaddr}/{cidr}",
+            "tooltip-format-disconnected": "󰤭  Disconnected",
+            "tooltip": true
+        },
+
+        "bluetooth": {
+            "format": " {status}",
+            "format-disabled": " Off",
+            "format-connected": " {num_connections} Connected",
+            "tooltip-format": "{controller_alias}\n{num_connections} connected",
+            "on-click": "blueman-manager"
+        },
+
+        "backlight": {
+            "device": "amdgpu_bl1",
+            "format": "󰃟 {percent}%",
+            "on-scroll-up": "brightnessctl set 5%+",
+            "on-scroll-down": "brightnessctl set 5%-"
+        },
+
+        "custom/hyprsunset": {
+            "exec": "~/.config/waybar/scripts/hyprsunset.sh",
+            "return-type": "json",
+            "interval": 60,
+            "on-click": "~/.config/waybar/scripts/hyprsunset.sh next",
+            "on-click-right": "~/.config/waybar/scripts/hyprsunset.sh off",
+            "on-click-middle": "~/.config/waybar/scripts/hyprsunset.sh auto",
+            "tooltip": true,
+            "tooltip-format": "Left: Change temperature\nRight: Disable\nMiddle: Automatic"
+        }
     }
-}
+]

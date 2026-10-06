@@ -12,7 +12,7 @@ ETH_DATA=$(get_data "$ETH")
 
 # If neither interface is available
 if [[ -z "$WIFI_DATA" && -z "$ETH_DATA" ]]; then
-    echo '{"text":"󰤨 --","tooltip":"vnStat unavailable"}'
+    echo '{"text":"󰾆 --","tooltip":"vnStat unavailable"}'
     exit 0
 fi
 
@@ -91,4 +91,4 @@ TOTAL_RX=$(format_size "$TOTAL_RX")
 TOTAL_TX=$(format_size "$TOTAL_TX")
 TOTAL=$(format_size "$TOTAL")
 
-echo "{\"text\":\"󰤨 $TOTAL\",\"tooltip\":\"Today ($DATE)\\n\\n󰍛 Total:    $TOTAL\\n󰁅 Download: $TOTAL_RX\\n󰁆 Upload:   $TOTAL_TX\\n\\n󰤨 Wi-Fi:    $WIFI_TOTAL\\n󰈀 Ethernet: $ETH_TOTAL\"}"
+echo "{\"text\":\"󰾆 $TOTAL\",\"tooltip\":\"Today ($DATE)\\n\\n󰍛 Total:    $TOTAL\\n󰁅 Download: $TOTAL_RX\\n󰁆 Upload:   $TOTAL_TX\\n\\n󰤨 Wi-Fi:    $WIFI_TOTAL\\n󰈀 Ethernet: $ETH_TOTAL\"}"
