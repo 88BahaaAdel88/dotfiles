@@ -9,8 +9,8 @@
         "margin-right": 10,
         "spacing": 4,
 
-        "modules-left": ["custom/power", "custom/prayer", "hyprland/workspaces"],
-        "modules-center": ["clock"],
+        "modules-left": ["custom/power", "clock", "hyprland/workspaces"],
+        "modules-center": ["custom/prayer"],
         "modules-right": ["temperature", "battery", "pulseaudio", "custom/microphone", "tray"],
 
         "hyprland/workspaces": {

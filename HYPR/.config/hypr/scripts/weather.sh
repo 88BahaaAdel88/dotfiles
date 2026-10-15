@@ -13,7 +13,7 @@ if [ -f "$CACHE_FILE" ]; then
 fi
 
 # Fetch weather with strict 3 second timeout
-raw=$(curl -s --max-time 3 "wttr.in?format=%C|%t|%l" 2>/dev/null)
+raw=$(curl -s --max-time 3 "wttr.in/Alexandria?format=%C|%t|%l" 2>/dev/null)
 
 # Fallback to cache if request failed or returned error page
 if [ -z "$raw" ] || echo "$raw" | grep -qi "error\|unknown\|html\|500\|502\|503"; then
