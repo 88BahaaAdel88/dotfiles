@@ -11,7 +11,7 @@ window#waybar {
     color: #cdd6f4;
 }
 
-#workspaces, #language, #bluetooth, #clock, #pulseaudio, #network, #battery, #tray, #temperature, #backlight, #custom-data-usage, #custom-power, #custom-hyprsunset, #custom-microphone, #custom-prayer, #custom-media
+#workspaces, #language, #bluetooth, #clock, #pulseaudio, #network, #battery, #tray, #temperature, #backlight, #custom-data-usage, #custom-power, #custom-hyprsunset, #custom-microphone, #custom-prayer, #custom-media, #custom-ticktick-timer
 {
     background: rgba(30, 30, 46, 0.85);
     padding: 4px 14px;
@@ -128,4 +128,39 @@ window#waybar {
 #custom-microphone.error {
     color: #f38ba8;
     border-color: #f38ba8;
+}
+
+#custom-ticktick-timer {
+    color: #cba6f7;
+}
+
+#custom-ticktick-timer.focus {
+    color: #cba6f7;
+}
+
+#custom-ticktick-timer.stopwatch {
+    color: #fab387;
+}
+
+#custom-ticktick-timer.short_break {
+    color: #a6e3a1;
+}
+
+#custom-ticktick-timer.long_break {
+    color: #89b4fa;
+}
+
+#custom-ticktick-timer.running {
+    border-color: rgba(203, 166, 247, 0.45);
+}
+
+#custom-ticktick-timer.paused {
+    color: #f9e2af;
+}
+
+#custom-ticktick-timer.offline {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
 }

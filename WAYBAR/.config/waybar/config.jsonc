@@ -9,7 +9,7 @@
         "margin-right": 10,
         "spacing": 4,
 
-        "modules-left": ["custom/power", "clock", "hyprland/workspaces"],
+        "modules-left": ["custom/power", "clock", "hyprland/workspaces", "custom/ticktick-timer"],
         "modules-center": ["custom/prayer"],
         "modules-right": ["temperature", "battery", "pulseaudio", "custom/microphone", "tray"],
 
@@ -69,6 +69,15 @@
             "exec": "~/.config/hypr/scripts/prayer.sh",
             "interval": 30,
             "tooltip": false
+        },
+
+        "custom/ticktick-timer": {
+            "exec": "/home/bahaa/Projects/ticktick-timer/ticktick-timer/run.sh --waybar",
+            "return-type": "json",
+            "interval": 1,
+            "on-click": "/home/bahaa/Projects/ticktick-timer/ticktick-timer/run.sh --toggle",
+            "on-click-right": "/home/bahaa/Projects/ticktick-timer/ticktick-timer/run.sh --show-hide",
+            "on-click-middle": "/home/bahaa/Projects/ticktick-timer/ticktick-timer/run.sh --compact"
         }
     },
     {
