@@ -36,7 +36,8 @@ hl.bind(mainMod .. " + O",            hl.dsp.exec_cmd("/home/bahaa/Projects/tick
 
 -- Window states
 hl.bind(mainMod .. " + V",            hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + P",            hl.dsp.window.pseudo())
+hl.bind(mainMod .. " + P",            hl.dsp.window.pin())
+hl.bind(mainMod .. " + SHIFT + P",    hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + T",            hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + F",            hl.dsp.window.fullscreen())
 
@@ -76,6 +77,8 @@ hl.bind(mainMod .. " + SHIFT + V",    hl.dsp.exec_cmd("copyq show"))
 -- Mouse actions
 hl.bind(mainMod .. " + mouse:272",    hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273",    hl.dsp.window.resize(), { mouse = true })
+hl.bind(mainMod .. " + mouse_down",   hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + mouse_up",     hl.dsp.focus({ workspace = "e-1" }))
 
 -- SwayOSD multimedia keys
 hl.bind("XF86AudioRaiseVolume",       hl.dsp.exec_cmd("swayosd-client --output-volume raise"),       { repeating = true, locked = true })
